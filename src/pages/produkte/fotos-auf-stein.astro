@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ContentImage from '../../components/ContentImage.astro';
+---
+
+<Layout
+  title="Fotos auf Stein"
+  description="Foto auf Schieferstein vom Fotostudio Roland Grün – Ihr Motiv auf hochwertigem Naturschiefer, jedes Stück ein Unikat."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Produkte"
+    title="Fotos auf Schieferstein"
+    lead="Ihr Motiv auf echtem Naturschiefer – jedes Stück ein Unikat."
+  />
+
+  <div class="stein">
+    <ContentImage
+      src="bilder/beitraege/prospekttitel.jpg"
+      alt="Foto auf Schieferstein"
+      sizes="(max-width: 700px) 100vw, 42vw"
+    />
+    <div class="prose">
+      <p>
+        Naturschiefer verleiht Ihrem Foto eine besonders edle, erdige Anmutung. Die
+        feine Maserung und die unregelmäßige Struktur des Steins machen jedes Stück zu
+        einem echten Unikat – kein Schieferfoto gleicht dem anderen.
+      </p>
+      <p>
+        Ihr Motiv wird direkt auf die hochwertige Schieferplatte gedruckt, wodurch
+        Farben und Steinoberfläche zu einer ganz eigenen Bildwirkung verschmelzen. Ob
+        mit dezent abgerundeten Kanten oder im natürlichen Bruch – das Ergebnis ist
+        ebenso dekorativ wie langlebig.
+      </p>
+      <p>
+        Als Wandbild, zum Aufstellen oder als außergewöhnliches Geschenk: Fotos auf
+        Schieferstein sind ein echter Blickfang. Sprechen Sie uns an – wir beraten Sie
+        gerne zu Formaten und Motivauswahl.
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .stein {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .stein {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

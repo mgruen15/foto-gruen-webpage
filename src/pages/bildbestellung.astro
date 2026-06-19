@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContentImage from '../components/ContentImage.astro';
+---
+
+<Layout
+  title="Bildbestellung"
+  description="Bildbestellung und Nachbestellung beim Fotostudio Roland Grün – Kontaktformular, Online-Galerie, i-port Software und fotograf.de."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Service"
+    title="Bildbestellung bei Foto Grün"
+    lead="Praktische und bequeme Möglichkeiten der Bild- und Nachbestellung."
+  />
+
+  <div class="order">
+    <div class="prose order__intro">
+      <p>
+        Das Fotostudio Grün bietet Ihnen praktische und bequeme Möglichkeiten der
+        Bild- oder Nachbestellung:
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <h2 class="step__title"><span>1</span> Nachbestellung von Studio- und Auftragsarbeiten</h2>
+        <p>Über unser <a href="/kontakt">Kontaktformular</a> können Sie Nachbestellungen von Studioarbeiten auslösen. Folgende Daten werden benötigt:</p>
+        <ul>
+          <li>Ihre Bildnummern (in der Regel 8 Ziffern)</li>
+          <li>Die gewünschte Anzahl der Abzüge</li>
+          <li>Das gewünschte Format / die Größe</li>
+        </ul>
+        <p class="step__note">Wichtig: Um Falschbestellungen zu vermeiden, behalten wir uns vor, bei Online-Bestellungen ggf. telefonisch nachzufragen.</p>
+      </li>
+
+      <li class="step">
+        <h2 class="step__title"><span>2</span> Online-Galerie für Erstbestellungen</h2>
+        <p>Sofern mit uns vereinbart, können wir Musterbilder Ihrer Aufträge in unserem geschützten Webshop präsentieren. Hierfür erhalten Sie von uns ein individuelles Passwort, mit dem Sie sich einloggen können. Ihre Favoriten werden von uns in der Regel innerhalb von 14 Tagen per Bildoptimierung, Retusche und Fachabzug veredelt.</p>
+      </li>
+
+      <li class="step">
+        <h2 class="step__title"><span>3</span> Eigene private Aufnahmen über Bestellsoftware (i-port)</h2>
+        <ol class="substeps">
+          <li>Laden Sie die <strong>i-port Software</strong> kostenlos auf Ihren PC herunter.</li>
+          <li>Wählen Sie Ihre Bilddateien, gewünschten Formate, Stückzahlen oder Fun-Artikel aus.</li>
+          <li>Senden Sie die Bestellung ab – nach wenigen Tagen liegt Ihre Bestellung im Fotostudio Grün zur Abholung bereit!</li>
+        </ol>
+      </li>
+
+      <li class="step">
+        <h2 class="step__title"><span>4</span> Events &amp; Kindergarten-Bestellsystem (fotograf.de)</h2>
+        <p>Haben Sie bei einer Veranstaltung oder einem Fototag einen QR-Code erhalten? Nutzen Sie das Ordersystem unter <a href="https://foto-gruen.fotograf.de/login" target="_blank" rel="noopener noreferrer">foto-gruen.fotograf.de/login</a>, um Fotoabzüge direkt nach Hause zu bestellen oder digitale Downloads zu beziehen.</p>
+      </li>
+    </ol>
+
+    <ContentImage
+      src="bilder/beitraege/AbdiePost620.jpg"
+      alt="Briefkasten – ab die Post"
+      class="order__img"
+      sizes="(max-width: 860px) 100vw, 30vw"
+    />
+  </div>
+</Layout>
+
+<style>
+  .order {
+    display: grid;
+    grid-template-columns: 1fr 20rem;
+    grid-template-areas: 'intro img' 'steps img';
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .order {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'intro' 'img' 'steps';
+    }
+  }
+  .order__intro {
+    grid-area: intro;
+  }
+  .order :global(.order__img) {
+    grid-area: img;
+    position: sticky;
+    top: 6rem;
+  }
+  .steps {
+    grid-area: steps;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+  }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .step__title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+  .step__title span {
+    display: grid;
+    place-items: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    flex-shrink: 0;
+    background: var(--forest-deep);
+    color: #fff;
+    border-radius: 50%;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+  }
+  .step p {
+    color: var(--ink-soft);
+  }
+  .step p + ul,
+  .step p + ol {
+    margin-top: 0.6rem;
+  }
+  .step ul,
+  .step ol {
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+  }
+  .step li + li {
+    margin-top: 0.3rem;
+  }
+  .step li::marker {
+    color: var(--crimson);
+  }
+  .step__note {
+    margin-top: 0.8rem;
+    font-size: 0.88rem;
+    font-style: italic;
+  }
+  .step a {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--crimson);
+    text-underline-offset: 2px;
+  }
+</style>

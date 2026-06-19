@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderSlider from '../components/HeaderSlider.astro';
+import ContentImage from '../components/ContentImage.astro';
+
+const badges = ['Bewerbungsfoto', 'Passfoto', 'Fotostudio', 'Werbefotografie'];
+
+const leistungen = [
+  { title: 'Bewerbung & Portrait', href: '/bildgalerien/bewerbung', text: 'Bewerbungsfotos und Businessportraits mit Charakter.' },
+  { title: 'Industrie & Reportage', href: '/bildgalerien/industrie', text: 'Fotoarbeiten vor Ort – Industrie, Architektur, Events.' },
+  { title: 'Werbefotografie', href: '/spektrum/werbefotografie', text: 'Bildwelten für Marken, Produkte und Kampagnen.' },
+  { title: 'Passbild & Visa', href: '/passbild', text: 'Biometrische Passbilder und Fotos für Visa-Anträge.' },
+  { title: 'Fotoprodukte', href: '/produkte/1a-produkte', text: 'Leinwand, Echtglas, 3D-Laserfoto, Fototassen & mehr.' },
+  { title: 'Bildbestellung', href: '/bildbestellung', text: 'Nachbestellungen und Online-Galerie für Ihre Aufträge.' },
+];
+---
+
+<Layout
+  title=""
+  description="Fotostudio Roland Grün, Atelier für Fotografie im Handwerk in Hanau-Großauheim. Passbild, Bewerbungsfoto, Portrait-, Industrie- und Werbefotografie vom Meisterbetrieb."
+  slider
+>
+  <HeaderSlider slot="hero" />
+
+  <article class="home">
+    <p class="visually-hidden">
+      Fotostudio Roland Grün, Lise-Meitner-Str. 36, 63457 Hanau-Großauheim.
+    </p>
+
+    <ul class="badges" aria-label="Schwerpunkte">
+      {badges.map((b) => <li>{b}</li>)}
+    </ul>
+
+    <section class="intro">
+      <div class="intro__media">
+        <ContentImage
+          src="bilder/beitraege/Fotostudio Grn.jpg"
+          alt="Fotostudio Roland Grün in Hanau-Großauheim"
+          sizes="(max-width: 760px) 100vw, 38vw"
+        />
+      </div>
+      <div class="intro__text prose">
+        <p class="eyebrow">Willkommen</p>
+        <h2>Ihr Foto-Meisterbetrieb in Hanau</h2>
+        <p>
+          Das Fotostudio Roland Grün ist Ihr Foto-Meisterbetrieb mit Sitz in
+          Hanau-Großauheim. Wir bieten Ihnen umfangreiche Leistungen rund um das
+          Foto und die Fotografie, sowie ein wahrlich meisterliches fotografisches
+          „Auge“.
+        </p>
+        <p>
+          Nicht nur bei den Themen Passfoto, professionelles Bewerbungsfoto,
+          Portraitfoto und Bewerbungsportrait ist das Fotostudio Grün in Hanau Ihr
+          kompetenter Ansprechpartner.
+        </p>
+        <p>
+          Firmenportraits, Homepagebebilderungen und Industriefotografie übernimmt
+          Ihr Fotostudio Grün in Hanau ebenso zuverlässig wie Fotoarbeiten vor Ort
+          bei Veranstaltungen jeder Art.
+        </p>
+        <p>
+          Das Fotostudio Grün verfügt über modernste fototechnische Ausrüstung und
+          bietet Ihnen alle Möglichkeiten der professionellen Bildnachbearbeitung.
+        </p>
+      </div>
+    </section>
+
+    <section class="leistungen">
+      <div class="leistungen__head">
+        <p class="eyebrow">Leistungen</p>
+        <h2>Was wir für Sie tun</h2>
+      </div>
+      <ul class="cards">
+        {
+          leistungen.map((l) => (
+            <li>
+              <a class="card" href={l.href}>
+                <h3 class="card__title">{l.title}</h3>
+                <p class="card__text">{l.text}</p>
+                <span class="card__more link-underline">Mehr erfahren →</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+  }
+  .badges li {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .intro {
+      grid-template-columns: 1fr;
+    }
+  }
+  .intro__text h2 {
+    font-size: var(--step-2);
+  }
+
+  .leistungen {
+    margin-top: clamp(3rem, 2rem + 4vw, 5.5rem);
+  }
+  .leistungen__head {
+    margin-bottom: 1.75rem;
+  }
+  .leistungen__head h2 {
+    margin-top: 0.6rem;
+    font-size: var(--step-2);
+  }
+  .cards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--line-strong);
+    box-shadow: 0 22px 45px -30px rgba(18, 34, 23, 0.45);
+  }
+  .card__title {
+    font-size: 1.2rem;
+  }
+  .card__text {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+  .card__more {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--crimson);
+    align-self: flex-start;
+  }
+</style>

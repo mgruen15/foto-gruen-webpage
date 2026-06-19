@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ImageGrid from '../../components/ImageGrid.astro';
+
+const images = [
+  { src: 'bilder/beitraege/Bildbrotdose_09193516_frei_614px.png', alt: 'Brotdose mit Fotodruck' },
+  { src: 'bilder/beitraege/Schulfototasse_09193518_frei_614px.png', alt: 'Schultasse mit Fotodruck' },
+  { src: 'bilder/beitraege/Mousepad_09193520_frei_614px.png', alt: 'Mousepad mit Fotodruck' },
+  { src: 'bilder/beitraege/Fototasse_09193528_frei_614px.png', alt: 'Standard-Fototasse' },
+  { src: 'bilder/beitraege/Alufototrinkflasche_09193512_frei_614px.png', alt: 'Trinkflasche aus Aluminium mit Fotodruck' },
+  { src: 'bilder/beitraege/Schulfototrinkflasche_09193510_frei_614px.png', alt: 'Trinkflasche aus Kunststoff mit Fotodruck' },
+  { src: 'bilder/beitraege/Lffelfototasse_09193503_frei_614px.png', alt: 'Fototasse mit Löffel' },
+  { src: 'bilder/beitraege/Fotobierkrug_09193534_frei_614px.png', alt: 'Bierkrug mit Fotodruck' },
+];
+---
+
+<Layout
+  title="Fotofunartikel"
+  description="Fotogeschenke und Fotofunartikel vom Fotostudio Roland Grün – Tassen, Trinkflaschen, Mousepads und mehr."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Produkte"
+    title="Fotofunartikel"
+    lead="Individuelle Fotogeschenke, die garantiert Freude bereiten."
+  />
+
+  <div class="prose">
+    <p>
+      Nutzen Sie unsere Erfahrungen bei der Anfertigung von Fotofunartikeln. Diese
+      Fotogeschenke erfreuen sich größter Beliebtheit, aber nicht jedes Bild passt auf
+      jedes Produkt. Lassen Sie sich unverbindlich beraten, damit diese individuellen
+      Fotopräsente die gewünschte Wirkung entfalten können.
+    </p>
+    <p>
+      Sie wollen Ihr Foto doch lieber selbst auf einem Funartikel gestalten? Dann geht’s
+      hier entlang zur Onlinebestellung im Looxis Partnershop:
+      <a href="https://looxis.shop/foto-gruen" target="_blank" rel="noopener noreferrer">looxis.shop/foto-gruen</a>
+    </p>
+  </div>
+
+  <div class="detail-gallery">
+    <ImageGrid images={images} min="11rem" />
+  </div>
+</Layout>
+
+<style>
+  .detail-gallery {
+    margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+</style>

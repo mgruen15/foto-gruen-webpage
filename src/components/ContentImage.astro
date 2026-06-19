@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  /** Render an animated GIF untouched (no optimization pass). */
+  raw?: boolean;
+  class?: string;
+  sizes?: string;
+}
+const { src, alt, caption, raw = false, class: className, sizes = '(max-width: 700px) 100vw, 50vw' } =
+  Astro.props;
+const image = img(src);
+---
+
+<figure class:list={['content-image', className]}>
+  <span class="content-image__frame img-frame">
+    {
+      raw ? (
+        <img src={image.src} alt={alt} width={image.width} height={image.height} loading="lazy" />
+      ) : (
+        <Image src={image} alt={alt} widths={[400, 700, 1000]} sizes={sizes} loading="lazy" />
+      )
+    }
+  </span>
+  {caption && <figcaption class="content-image__caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .content-image {
+    margin: 0;
+  }
+  .content-image__frame {
+    display: block;
+    border-radius: var(--radius);
+  }
+  .content-image__caption {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+</style>

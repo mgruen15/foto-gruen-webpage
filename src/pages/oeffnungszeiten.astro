@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import ContentImage from '../components/ContentImage.astro';
+
+const hours = [
+  { day: 'Dienstags', time: '14:30 – 18:00 Uhr' },
+  { day: 'Donnerstags', time: '14:30 – 18:00 Uhr' },
+  { day: 'Andere Zeiten / Fototermine', time: 'Nach telefonischer Terminierung unter 06181 956292 möglich!' },
+];
+
+const services = [
+  'Sondertermine nach Vereinbarung',
+  'Portraitarbeiten',
+  'Wochenend- und Feiertagstermine',
+  'Begleitung bei Gesellschaften wie Kommunion, Konfirmation etc.',
+  'Vereinsfeiern und Betriebsfotografie',
+  'Dokumentationen & Reportagen',
+];
+---
+
+<Layout
+  title="Öffnungszeiten"
+  description="Öffnungszeiten und Abholzeiten von Fotostudio Roland Grün in Hanau-Großauheim. Termine nach telefonischer Vereinbarung."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Besuch"
+    title="Öffnungszeiten von Foto Grün"
+    lead="Bitte kündigen Sie Ihren Besuch vorab per Mail oder Telefon an. Besten Dank."
+  />
+
+  <div class="oz">
+    <div class="oz__main">
+      <table class="hours">
+        <caption class="visually-hidden">Öffnungs- und Abholzeiten</caption>
+        <thead>
+          <tr><th scope="col">Wochentag</th><th scope="col">Abhol-/Öffnungszeiten</th></tr>
+        </thead>
+        <tbody>
+          {hours.map((h) => (
+            <tr>
+              <th scope="row">{h.day}</th>
+              <td>{h.time}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="services">
+        <h2>Termine &amp; Leistungen</h2>
+        <ul>
+          {services.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <ContentImage
+      src="bilder/beitraege/5 vor 12 flachbreitklein.jpg"
+      alt="Uhr – fünf vor zwölf"
+      sizes="(max-width: 800px) 100vw, 32vw"
+    />
+  </div>
+</Layout>
+
+<style>
+  .oz {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .oz {
+      grid-template-columns: 1fr;
+    }
+  }
+  .hours {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .hours th,
+  .hours td {
+    text-align: left;
+    padding: 0.95rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .hours thead th {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--bg);
+  }
+  .hours tbody th {
+    font-family: var(--font-display);
+    font-weight: 700;
+    width: 42%;
+  }
+  .hours tbody tr:last-child th,
+  .hours tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .services {
+    margin-top: 2rem;
+  }
+  .services h2 {
+    font-size: var(--step-1);
+    margin-bottom: 1rem;
+  }
+  .services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .services li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--crimson);
+    border-radius: 50%;
+  }
+</style>

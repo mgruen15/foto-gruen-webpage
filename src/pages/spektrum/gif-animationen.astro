@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ContentImage from '../../components/ContentImage.astro';
+---
+
+<Layout
+  title="Gif-Animationen"
+  description="Gif-Animationen bringen Bewegung in Ihre Homepage – ohne aufwendige Videofiles. Fotostudio Roland Grün."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Spektrum"
+    title="Gif-Animationen"
+    lead="Bewegung im stehenden Motiv – die Bildbotschaft auf den Punkt gebracht."
+  />
+
+  <div class="gif-layout">
+    <div class="prose">
+      <p>
+        Gif-Animationen bringen Bewegung in Ihre Homepage, ohne das aufwendige
+        Einbetten von großen Videofiles. Häufig bringt die „einfache“ Bewegung im
+        stehenden Motiv Ihre Bildbotschaft auf den Punkt.
+      </p>
+    </div>
+    <ContentImage
+      src="bilder/beitraege/Sonnendach_Animation.gif"
+      alt="Animiertes Gif eines sich öffnenden Sonnendachs"
+      raw
+      caption="Beispiel: animiertes Sonnendach als Gif"
+      sizes="(max-width: 700px) 100vw, 45vw"
+    />
+  </div>
+</Layout>
+
+<style>
+  .gif-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .gif-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

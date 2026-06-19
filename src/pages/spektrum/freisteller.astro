@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ImageGrid from '../../components/ImageGrid.astro';
+
+const images = [
+  { src: 'bilder/beitraege/peoplefreisteller_kstchen.jpg', alt: 'Freisteller einer Person' },
+  { src: 'bilder/beitraege/11185162_peoplefreisteller.jpg', alt: 'Freigestellte Personengruppe' },
+  { src: 'bilder/beitraege/Kaffeemaschine.png', alt: 'Freigestellte Kaffeemaschine für den Webshop' },
+];
+---
+
+<Layout
+  title="Freisteller"
+  description="Freisteller und Freistellungstechniken in der Werbe- und Produktfotografie vom Fotostudio Roland Grün."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Spektrum"
+    title="Freisteller"
+    lead="Werbefotografie – die Befreiung des Motivs vom störenden Hintergrund."
+  />
+
+  <div class="prose">
+    <p>
+      Freistellung bedeutet in der Fotografie die Befreiung eines Motivs von einem
+      störenden Hintergrund. Die Maske zum Freistellen eines Bildes nennt man in der
+      Fachsprache üblicherweise einen <strong>Freisteller</strong>.
+    </p>
+    <p>
+      Es gibt viele Gründe, Freistellungstechniken in der Fotografie anzuwenden. Die
+      wichtigsten sind die Konzentration auf das wesentliche Motiv und die Erstellung
+      von Ausgangsbildmaterial für Fotomontagen. Auf diese Weise kann ein Motiv in
+      vollkommen andere Bildzusammenhänge gebracht werden. So finden Freisteller ihre
+      Hauptanwendung in der Werbung.
+    </p>
+    <p>
+      Aber auch in der Produktfotografie kann die Lösung vom Hintergrund und die damit
+      verbundene Konzentration auf das Produkt selbst eine wesentliche Rolle spielen.
+      So arbeiten namhafte Internetkaufhäuser fast ausschließlich mit dieser Technik,
+      um die feilgebotene Ware in ihren Webshops zu präsentieren.
+    </p>
+  </div>
+
+  <div class="detail-gallery">
+    <ImageGrid images={images} min="13rem" />
+  </div>
+</Layout>
+
+<style>
+  .detail-gallery {
+    margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ImageGrid from '../../components/ImageGrid.astro';
+
+const images = [
+  { src: 'bilder/beitraege/Echt_Glas 617 o Text.jpg', alt: 'Foto auf Echtglas' },
+  { src: 'bilder/beitraege/Formglas 617 o Text.jpg', alt: 'Foto auf Form-Glas (Glasblock)' },
+  { src: 'bilder/beitraege/Exklusive Formen 617 o Text.JPG', alt: 'Exklusive Glasformen' },
+  { src: 'bilder/beitraege/Glas mit Alu-Fuss 617 ohne Text.JPG', alt: 'Glasbild mit Aluminiumfuß' },
+  { src: 'bilder/beitraege/Quader 617 o Text.JPG', alt: 'Glasquader mit Fotodruck' },
+];
+---
+
+<Layout
+  title="Fotos auf Echtglas"
+  description="Foto-Direktdruck auf Echtglas im Fotostudio Roland Grün – brillante Farben, UV-beständig, in Fine-Art-Qualität."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Produkte"
+    title="Fotos auf Echtglas"
+    lead="Brillanter Foto-Direktdruck auf Glas – Ihre schönsten Momente zum Leuchten gebracht."
+  />
+
+  <div class="detail-gallery">
+    <ImageGrid images={images} min="12rem" />
+  </div>
+
+  <div class="prose">
+    <p>
+      Der Druck erfolgt in mehreren Durchgängen, um eine optimale Brillanz zu erhalten.
+      Dabei wird zunächst eine Haftschicht aufgedruckt und danach in mehreren Schichten
+      die Farbe. Dieses aufwändige Druckverfahren gibt ein enormes Farbspektrum bei
+      höchster Farbintensität und glänzender Farbkraft wieder. Die Bilder behalten eine
+      gewisse Transparenz. Eine Beleuchtung von der Rückseite oder das Aufhängen der
+      Bilder in Fenstern oder als Raumteiler bringt Ihre schönsten Momente zum Leuchten.
+      Die Farbe ist UV-beständig und auch nach Jahren verblasst Ihr Glas-Bild nicht.
+      Bedruckte Glasflächen können problemlos feucht gereinigt werden.
+    </p>
+    <p>
+      Wenn Sie auf Nummer sicher gehen möchten, dass der Glasdruck vor Kratzern geschützt
+      wird, empfehlen wir Ihnen, Ihr Bild mit Schutzlaminierung zu bestellen. Dabei wird
+      die bedruckte Fläche mit einem transparenten Laminat versiegelt, so dass Ihr Druck
+      auch gegen mechanische Beschädigungen geschützt ist.
+    </p>
+    <h2>Form-Glas (Glasblöcke)</h2>
+    <p>
+      Das ideale Geschenk für besondere Anlässe. Ob zur Geburt, Hochzeit, Einschulung
+      oder vielen anderen besonderen Ereignissen: Ihr Foto auf einem 19 mm starken
+      Glasblock findet immer Bewunderer. Der hochwertige Foto-Direktdruck in
+      Fine-Art-Qualität verleiht Ihren Bildern eine besondere Brillanz. Vier verschiedene
+      Formen stehen Ihnen zur Auswahl: Rechteck, Rund, Herz und Frame. Ausgehändigt werden
+      die Form-Gläser in einer Geschenkbox. Eine Aufhängung oder Befestigung ist nicht
+      notwendig, da die massiven Glasblöcke von selbst stehen.
+    </p>
+    <h2>Sonderformen &amp; Glasbilder mit Alu-Fuß</h2>
+    <p>
+      Exklusive Sonderformen für Ihre exklusive Werbebotschaft oder Präsentation. Das
+      hochwertige Weißglas und der dezente Aluminiumfuß vereinen sich mit der strahlenden
+      Farbbrillanz der UV-Direkt-Drucke, so dass Sie eine atemberaubende Optik für Ihre
+      Bilder erhalten.
+    </p>
+    <h2>Glasquader</h2>
+    <p>
+      Glasquader sind der „Eyecatcher“ auf Ihrem Regal, Messestand, Ausstellungsraum,
+      Ladengeschäft oder in Ihrer Wohnung. Die dreidimensionale Tiefenwirkung des
+      hochglanzpolierten Glasquaders zieht die Blicke auf sich. Geliefert wird dieser
+      Artikel in einer Geschenkbox mit Magnetverschluss.
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .detail-gallery {
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+</style>

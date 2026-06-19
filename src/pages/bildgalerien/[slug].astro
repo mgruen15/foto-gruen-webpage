@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Gallery from '../../components/Gallery.astro';
+import { galleries } from '../../data/galleries';
+
+export function getStaticPaths() {
+  return galleries.map((gallery) => ({
+    params: { slug: gallery.slug },
+    props: { gallery },
+  }));
+}
+
+const { gallery } = Astro.props;
+
+const others = galleries.filter((g) => g.slug !== gallery.slug);
+---
+
+<Layout
+  title={`Bildgalerie ${gallery.title}`}
+  description={`${gallery.title} – Bildgalerie des Fotostudio Roland Grün in Hanau-Großauheim.`}
+>
+  <PageHero slot="hero" eyebrow="Bildgalerien" title={gallery.title} lead={gallery.intro} />
+
+  <Gallery gallery={gallery} />
+
+  <nav class="gallery-switch" aria-label="Weitere Galerien">
+    <span class="gallery-switch__label">Weitere Galerien:</span>
+    <ul>
+      {others.map((g) => <li><a class="link-underline" href={`/bildgalerien/${g.slug}`}>{g.title}</a></li>)}
+    </ul>
+  </nav>
+</Layout>
+
+<style>
+  .gallery-switch {
+    margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+  }
+  .gallery-switch__label {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .gallery-switch ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .gallery-switch a {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+</style>

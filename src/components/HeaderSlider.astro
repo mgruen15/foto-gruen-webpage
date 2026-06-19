@@ -1,0 +1,213 @@
+---
+import { Image } from 'astro:assets';
+import { headerSlides } from '../data/site';
+import { img } from '../lib/images';
+
+const slides = headerSlides.map((s) => ({ ...s, image: img(s.src) }));
+---
+
+<section class="hero" aria-label="Bildergalerie Fotostudio Roland Grün" data-slider>
+  <div class="hero__stage">
+    {
+      slides.map((slide, i) => (
+        <figure class="hero__slide" data-slide aria-hidden={i !== 0} style={`--i:${i}`}>
+          <Image
+            src={slide.image}
+            alt={slide.alt}
+            widths={[640, 1024, 1600, 2000]}
+            sizes="100vw"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
+          />
+        </figure>
+      ))
+    }
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content container">
+      <p class="eyebrow">Atelier für Fotografie im Handwerk</p>
+      <h1 class="hero__title">
+        Fotostudio<br /><span>Roland Grün</span>
+      </h1>
+      <p class="hero__lead">
+        Ihr Foto-Meisterbetrieb in Hanau-Großauheim. Passbild, Bewerbungsfoto,
+        Portrait, Industrie- und Werbefotografie – mit meisterlichem Auge.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--light" href="/bildgalerien/bewerbung"><span>Bildgalerien</span></a>
+        <a class="btn btn--ghost btn--on-dark" href="/kontakt"><span>Kontakt</span></a>
+      </div>
+    </div>
+
+    <div class="hero__dots" role="tablist" aria-label="Bild auswählen">
+      {
+        slides.map((slide, i) => (
+          <button
+            class="hero__dot"
+            type="button"
+            role="tab"
+            data-dot
+            aria-selected={i === 0}
+            aria-label={`Bild ${i + 1}: ${slide.alt}`}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--forest-deep);
+  }
+  .hero__stage {
+    position: relative;
+    height: clamp(28rem, 72vh, 46rem);
+    overflow: hidden;
+  }
+  .hero__slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 1.2s var(--ease);
+  }
+  .hero__slide.is-active {
+    opacity: 1;
+  }
+  /* First paint before JS hydrates */
+  .hero__slide[data-slide][style*='--i:0'] {
+    opacity: 1;
+  }
+  .hero__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        100deg,
+        rgba(18, 34, 23, 0.82) 0%,
+        rgba(18, 34, 23, 0.45) 42%,
+        rgba(18, 34, 23, 0.08) 75%
+      ),
+      linear-gradient(0deg, rgba(18, 34, 23, 0.5), transparent 45%);
+  }
+  .hero__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.1rem;
+    color: #fff;
+  }
+  .hero__title {
+    color: #fff;
+    font-size: var(--step-4);
+    line-height: 0.92;
+  }
+  .hero__title span {
+    color: #fff;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.55);
+    color: transparent;
+  }
+  .hero__lead {
+    max-width: 34ch;
+    font-size: var(--step-1);
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.45;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .btn--on-dark {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hero__dots {
+    position: absolute;
+    left: 50%;
+    bottom: 1.4rem;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 2;
+  }
+  .hero__dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: transparent;
+    cursor: pointer;
+    transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .hero__dot[aria-selected='true'] {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 600px) {
+    .hero__stage {
+      height: clamp(24rem, 78vh, 34rem);
+    }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-slider]');
+  if (root) {
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-slide]'));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    let timer: number | undefined;
+
+    function show(next: number) {
+      slides[current]?.classList.remove('is-active');
+      slides[current]?.setAttribute('aria-hidden', 'true');
+      dots[current]?.setAttribute('aria-selected', 'false');
+      current = (next + slides.length) % slides.length;
+      slides[current]?.classList.add('is-active');
+      slides[current]?.setAttribute('aria-hidden', 'false');
+      dots[current]?.setAttribute('aria-selected', 'true');
+    }
+
+    function start() {
+      if (reduce || slides.length < 2) return;
+      stop();
+      timer = window.setInterval(() => show(current + 1), 5000);
+    }
+    function stop() {
+      if (timer) window.clearInterval(timer);
+    }
+
+    // Activate the first slide (replacing the CSS-only first paint).
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === 0));
+
+    dots.forEach((dot, i) =>
+      dot.addEventListener('click', () => {
+        show(i);
+        start();
+      }),
+    );
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', () =>
+      document.hidden ? stop() : start(),
+    );
+
+    start();
+  }
+</script>

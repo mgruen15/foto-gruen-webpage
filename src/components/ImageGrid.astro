@@ -1,0 +1,26 @@
+---
+import ContentImage from './ContentImage.astro';
+
+interface Props {
+  images: { src: string; alt: string; raw?: boolean }[];
+  /** Minimum column width. */
+  min?: string;
+}
+const { images, min = '14rem' } = Astro.props;
+---
+
+<div class="image-grid" style={`--min:${min}`}>
+  {
+    images.map((image) => (
+      <ContentImage src={image.src} alt={image.alt} raw={image.raw} sizes="(max-width: 700px) 50vw, 22vw" />
+    ))
+  }
+</div>
+
+<style>
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--min), 1fr));
+    gap: clamp(0.6rem, 0.4rem + 0.8vw, 1.1rem);
+  }
+</style>

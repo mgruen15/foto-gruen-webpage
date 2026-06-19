@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import { contact, partners, nav } from '../data/site';
+import { img } from '../lib/images';
+
+const year = new Date().getFullYear();
+const logos = partners.map((p) => ({ ...p, image: img(p.src) }));
+const legal = [
+  { label: 'Impressum', href: '/impressum' },
+  { label: 'AGB', href: '/agb' },
+  { label: 'Datenschutz', href: '/dsgvo' },
+];
+---
+
+<footer class="site-footer is-dark">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <p class="eyebrow">Fotostudio Roland Grün</p>
+        <p class="footer__addr">
+          {contact.street}<br />
+          {contact.zip} {contact.town}
+        </p>
+        <p class="footer__contact">
+          <a class="link-underline" href={contact.phoneHref}>Tel. {contact.phone}</a><br />
+          <span class="footer__muted">Fax {contact.fax}</span>
+        </p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer-Navigation">
+        <h2 class="footer__h">Navigation</h2>
+        <ul>
+          {nav.map((item) => <li><a class="link-underline" href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="footer__nav" aria-label="Rechtliches">
+        <h2 class="footer__h">Rechtliches</h2>
+        <ul>
+          {legal.map((item) => <li><a class="link-underline" href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <div class="footer__partners">
+        <h2 class="footer__h">Mitgliedschaften</h2>
+        <ul class="partner-logos">
+          {
+            logos.map((logo) => (
+              <li>
+                <Image
+                  src={logo.image}
+                  alt={logo.name}
+                  widths={[120, 220]}
+                  sizes="120px"
+                  loading="lazy"
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <p>© {year} Fotostudio Roland Grün, {contact.street}, {contact.zip} {contact.town}, Tel.: {contact.phone}</p>
+      <a class="footer__top link-underline" href="#top">Nach oben ↑</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) 1.75rem;
+    margin-top: clamp(3rem, 2rem + 4vw, 6rem);
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+  }
+  @media (max-width: 820px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .footer__addr {
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: #fff;
+  }
+  .footer__contact {
+    margin-top: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .footer__muted {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .footer__h {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+  }
+  .footer__nav ul,
+  .footer__partners ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer__nav li {
+    margin-bottom: 0.55rem;
+  }
+  .footer__nav a {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.92rem;
+  }
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .partner-logos li {
+    background: #fff;
+    border-radius: 2px;
+    padding: 0.4rem;
+    width: 5.25rem;
+    display: flex;
+    align-items: center;
+  }
+  .footer__base {
+    margin-top: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+</style>

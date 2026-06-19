@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  /** Render the full-bleed hero slider (home page). */
+  slider?: boolean;
+  /** Hide the right sidebar (e.g. wide legal pages). */
+  fullWidth?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  keywords = site.keywords,
+  slider = false,
+  fullWidth = false,
+} = Astro.props;
+
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} – Ihr Foto-Meisterbetrieb in Hanau`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const hasHero = slider || Astro.slots.has('hero');
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Fotostudio Roland Grün" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#122217" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <Header />
+
+    {hasHero && <slot name="hero" />}
+
+    <div class="container shell-wrap">
+      {
+        fullWidth ? (
+          <main id="main"><slot /></main>
+        ) : (
+          <div class="shell">
+            <main id="main"><slot /></main>
+            <Sidebar />
+          </div>
+        )
+      }
+    </div>
+
+    <Footer />
+    <CookieConsent />
+
+    <style>
+      .shell-wrap {
+        padding-block: clamp(2rem, 1.25rem + 3vw, 3.75rem);
+      }
+    </style>
+  </body>
+</html>

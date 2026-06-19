@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de" >
+
+<head>
+<script type="text/javascript">  (function(){ function blockCookies(disableCookies, disableLocal, disableSession){ if(disableCookies == 1){ if(!document.__defineGetter__){ Object.defineProperty(document, 'cookie',{ get: function(){ return ''; }, set: function(){ return true;} }); }else{ var oldSetter = document.__lookupSetter__('cookie'); if(oldSetter) { Object.defineProperty(document, 'cookie', { get: function(){ return ''; }, set: function(v){ if(v.match(/reDimCookieHint\=/)) { oldSetter.call(document, v); } return true; } }); } } var cookies = document.cookie.split(';'); for (var i = 0; i < cookies.length; i++) { var cookie = cookies[i]; var pos = cookie.indexOf('='); var name = ''; if(pos > -1){ name = cookie.substr(0, pos); }else{ name = cookie; } if(name.match(/reDimCookieHint/)) { document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT'; } } } if(disableLocal == 1){ window.localStorage.clear(); window.localStorage.__proto__ = Object.create(window.Storage.prototype); window.localStorage.__proto__.setItem = function(){ return undefined; }; } if(disableSession == 1){ window.sessionStorage.clear(); window.sessionStorage.__proto__ = Object.create(window.Storage.prototype); window.sessionStorage.__proto__.setItem = function(){ return undefined; }; } } blockCookies(1,1,1); }()); </script>
+
+
+	<meta name="designer" content="Juergen Koller - http://www.lernvid.com" />
+<meta name="licence" content="Creative Commons 3.0" />
+<link href="templates/allrounder-3/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+<!--- ADD CSS Files -->
+
+
+
+	<link href="templates/allrounder-3/css/template.css" rel="stylesheet" type="text/css" media="all" />
+<!--
+	<link href="/templates/allrounder-3/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+-->
+	<link href="templates/allrounder-3/css/joomla.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/colors.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/lvdropdown.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/typo.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/modules.css" rel="stylesheet" type="text/css" media="all" />
+	
+<!--- Older Browser CSS -->
+<!--[if IE 7]>
+	<link href="/templates/allrounder-3/css/ie7.css" rel="stylesheet" type="text/css" media="all" />
+<![endif]-->
+
+<!--- ADD JavaScript Files -->
+
+	<script type="text/javascript" src="templates/allrounder-3/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		var jq = jQuery.noConflict();
+	</script>
+	<script type="text/javascript" src="templates/allrounder-3/js/lv-dropdown.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/jq.easy-tooltip.min.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/jq.easy-caption.min.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/reflection.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/effects.js"></script>
+
+
+<!-- Layout parameters -->
+	<style type="text/css">
+
+	/* Template layout parameters */
+	
+
+	#wrapper {
+		margin-top:10px;
+	}
+	#foot_container {
+		margin-bottom:0px;
+	}
+	#topmenu ul.menu, #topmenu ul.menu li a, #topmenu ul.menu li span.separator {
+		background-image: url('templates/allrounder-3/images/dropdown-smooth.png');
+	}
+	#topmenu ul.menu li.parent a, #topmenu ul.menu li.parent span.separator {
+		background-image: url('templates/allrounder-3/images/menu-parent-smooth.png');
+	}
+	#topmenu ul.menu li.parent a:hover, #topmenu ul.menu li.parent span.separator:hover, 
+	#topmenu ul.menu li#current.parent a, #topmenu ul.menu li#current.parent span.separator {
+		background-image: url('templates/allrounder-3/images/menu-parent-hover-smooth.png');
+	}
+				.page-header h2, h2.item-title {
+			background-image: none !important;
+		    padding-left: 0px !important;
+		    line-height: normal !important;
+		}
+		
+</style>
+<!-- Define fonts -->
+	<style type="text/css">
+
+	/* Template fonts */
+	
+	body {
+		font-size:14px;
+
+					font-family:Arial, Helvetica, Sans-Serif;
+						line-height:1.3em;
+	}
+
+</style>
+<!-- ADD own template colors -->
+	<style type="text/css">
+
+	/* Template colors */
+
+	body {
+		background-color: #19803B;
+		color: #555555;
+	}
+	span#copy a {
+		color: #555555;
+	}
+	a, a:link, a:visited, a:active, a:focus {
+		color: #26BF26;
+	}
+
+	#wrapper, #foot_container {
+		background-color: #D4EBD3;
+		border: 1px solid #849183;
+	}
+
+	
+	#header {
+		background-color: #383838;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;	
+		border-right:1px solid #000000;	
+	}
+	.heckl, .heckr {  
+		border-top: 10px solid #222222;
+	}
+
+	#footer {
+		background-color: #222222;
+		border:1px solid #444444;
+		border-bottom:2px solid #444444;
+	}
+	.feckl, .feckr {  
+		border-bottom: 10px solid #222222;
+	}
+	#footer a#gotop {
+		color: #89C48B;
+	}
+	#footermodule1234, #footermodule1234 a, #footermodule1234 ul.menu, #footermodule5, #footermodule5 a {
+		color: #89C48B;
+	}
+	#subfoot {
+		background-color: #313131;
+		border-top:1px solid #FFFFFF;
+		border-bottom:1px solid #222222;
+	}
+	.copytext {
+		color: #26BF26;
+	}
+
+	#maincontent {
+		background-color: #F9F9F9;
+		border: 3px double #D4EBD3;
+	}
+	
+	.item-page, .item, .leading-0, .leading-1, .leading-2, .leading-3, .leading-4, .leading-5, .contact,
+	#maincontent div.search, #maincontent .categories-list, #maincontent .category-list, 
+	#maincontent .archive , #maincontent .contact-category, #maincontent .weblink-category, 
+	#maincontent .newsfeed-category, #maincontent .login, #maincontent .profile, #maincontent .profile-edit, 
+	#maincontent .registration, #maincontent .remind, #maincontent .reset, #maincontent .finder {
+		background-color:#FFFFFF;
+		border: 1px solid #E9E9E9;
+	}
+
+	.page-header h2, .page-header h2 a {
+		color: #81B881 !important;
+	}
+
+	#wrapper #leftcol h3.moduleh3, #wrapper #rightcol h3.moduleh3	 {
+		background-color: #383838;
+		border-top:	1px solid #555555;
+		color: #DDDDDD;
+	}
+	#wrapper #leftcol h3.moduleh3	 {
+		border-left: 1px solid #999999;
+		border-right: 1px solid #555555;
+	}
+	#wrapper #rightcol h3.moduleh3	 {
+		border-right: 1px solid #999999;
+		border-left: 1px solid #555555;
+	}
+	.h3eckl, .h3eckr {  
+		border-top: 10px solid #222222;
+	}
+
+	#leftcol .module div.lvround-inner, #leftcol .module_menu div.lvround-inner, #leftcol .module_text div.lvround-inner, 
+	#rightcol .module div.lvround-inner, #rightcol .module_menu div.lvround-inner, #rightcol .module_text div.lvround-inner {
+		background-color: #F9F9F9;
+		border: 1px solid #DDDDDD;
+		color: #505050;
+	}
+	#subhead {
+		background-color: #F9F9F9;
+		border: 1px solid #FFFFFF;
+	}
+	.breadcrumbs, .breadcrumbs span {
+		color: #849183;
+	}
+	#leftcol .module div div, #leftcol .module_menu div div, #leftcol .module_text div div, 
+	#rightcol .module div div, #rightcol .module_menu div div, #rightcol .module_text div div {
+		border: 1px solid #FFFFFF;
+	}
+
+	/**** Global Modules ****/
+
+	div.module {
+		color:#505050;
+		background-color:#FFFFFF;
+		border:1px solid #DDDDDD;
+	}
+	div.module h3.moduleh3 {
+		background-color:#EFEFEF;
+		border:1px solid #DDDDDD;
+	}
+
+
+	.input, .inputbox {
+		color: #555555;
+		background-color: #EFEFEF;
+		border-top: 1px solid #CCCCCC;
+		border-left: 1px solid #CCCCCC;
+		border-right: 1px solid #FFFFFF;
+		border-bottom: 1px solid #FFFFFF;
+	}
+	.input:hover, .inputbox:hover {
+		color: #555555;
+		background-color: #F9F9F9;
+	}
+
+	input.button, button.button, button.validate, .pagenav, ul.pagenav li a {
+		color: #555;
+		background-color: #efefef;
+		color: #555555;
+		background-color: #EFEFEF;
+		border-top: 1px solid #CCCCCC;
+		border-left: 1px solid #CCCCCC;
+		border-right: 1px solid #FFFFFF;
+		border-bottom: 1px solid #FFFFFF;
+	}
+	input.button:hover, button.button:hover, button.validate:hover, .pagenav, ul.pagenav li a:hover {
+		color: #000000;
+		background-color: #FFFFFF;
+	}
+
+	/**** Mainmenu with suffix: _menu ****/
+	
+	.module_menu ul.menu li a, .module_menu ul.menu li span.separator {
+		color: #333333;
+		border-bottom:1px dotted #CCCCCC;
+	}
+	.module_menu ul.menu li a:hover, .module_menu ul.menu li a:active, .module_menu ul.menu li a:focus {
+		color: #26BF26!important;
+	}
+	.module_menu ul.menu li.current a {
+		color: #26BF26;
+	}
+	.module_menu ul.menu li.current ul li a {
+		color: #000000;
+	}
+
+	/**** Default Tooltips ****/
+
+	.easy-tooltip-default {
+		border: 1px solid #A6A7AB; 
+		background-color: #F2F3F5; 
+		color: #26BF26;
+	}
+
+
+</style>
+<!-- ADD own dropdown-menu colors -->
+	<style type="text/css">
+
+	/* Dropdown menu colors */
+
+	#topmenu ul.menu {
+		background-color:#222222 !important;
+		border-top:3px double #FFFFFF !important;
+		border-bottom:3px double #FFFFFF !important;
+	}
+	#topmenu ul.menu li {
+		border-right:1px solid #555555 !important;
+	}
+	#topmenu ul.menu li a, #topmenu ul.menu li span.separator {
+		border-top:1px solid #000000 !important;
+		border-right:1px solid #222222 !important;
+		border-left:1px solid #000000 !important;
+		border-bottom:1px solid #333333 !important;
+		color:#CCCCCC;
+		background-color:#222222;
+	}
+	#topmenu ul.menu a:hover {
+		color:#26BF26;
+	}
+	
+	/** LEVEL 2 **/
+	#topmenu ul.menu ul {
+		border:2px solid #000000 !important;
+		background-color:#222222;
+	}
+	#topmenu ul.menu li ul li a, #topmenu ul.menu li ul li span.separator {
+		border-top:1px solid #000000 !important;
+		border-right:1px solid #333333 !important;
+		border-left:1px solid #333333 !important;
+		border-bottom:1px solid #333333 !important;
+		color:#999999;
+	}
+	#topmenu ul.menu li ul li a:hover {
+		color:#26BF26;
+	}
+	#topmenu ul.menu li li {
+		background-color:#171717;
+	}
+	#topmenu ul.menu li li:hover {
+		background-color:#212121;
+	}
+
+</style>
+
+
+
+
+<!-- math the width of the 3 columns -->
+<style type="text/css">
+	#leftcol {width: 12%;}
+	#rightcol {width: 15%;}
+	#content_outmiddle {width: 71%;}
+	#content_outright {width: 84%;}
+	#content_outleft {width: 87%;}
+</style>
+
+	<base href="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Foto Fotostudio Grün Fotograf Fotoatelier Potraitfoto Fotografie Hanau Passbild Passfoto Bewerbungsfoto Businessportrait Industriefotografie Werbefotografie Reportage Hochzeitsfotografie" />
+	<meta name="description" content="Fotostudio Roland Grün, Atelier für Fotografie im Handwerk in Hanau - Großauheim." />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Kontakt</title>
+	<link href="templates/allrounder-3/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="plugins/system/osolcaptcha/osolCaptcha/captchaStyle.css" rel="stylesheet" type="text/css" />
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"2e4b99b77fb69d96da30b39807c8677e","system.paths":{"root":"","base":""},"system.keepalive":{"interval":840000,"uri":"\/component\/ajax\/?format=json"},"joomla.jtext":{"JLIB_FORM_FIELD_INVALID":"Ung\u00fcltiges Feld:&#160;"}}</script>
+	<script src="media/jui/js/jquery.min.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/jui/js/jquery-noconflict.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/jui/js/jquery-migrate.min.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/jui/js/bootstrap.min.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/system/js/core.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<!--[if lt IE 9]><script src="/media/system/js/polyfill.event.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script><![endif]-->
+	<script src="media/system/js/keepalive.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/system/js/punycode.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/system/js/validate.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<!--[if lt IE 9]><script src="/media/system/js/html5fallback.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script><![endif]-->
+	<script src="media/plg_captcha_recaptcha/js/recaptcha.min.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=JoomlaInitReCaptcha2&render=explicit&hl=de-DE" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		   
+		   				function reloadCapthcha(instanceNo)
+						{
+							var captchaSrc = "https://foto-gruen.de/index.php?showCaptcha=True&instanceNo="+instanceNo+"&time="+ new Date().getTime();
+							//alert(captachaSrc);
+							//alert(document.getElementById('captchaCode'+instanceNo));
+							document.getElementById('captchaCode'+instanceNo).src = captchaSrc ;
+							//alert(document.getElementById('captchaCode'+instanceNo).src);
+						} 
+						jQuery(function($){
+	$('#slide-contact').collapse({"parent": false,"toggle": false})
+});jQuery(function($){ initPopovers(); $("body").on("subform-row-add", initPopovers); function initPopovers (event, container) { $(container || document).find(".hasPopover").popover({"html": true,"trigger": "hover focus","container": "body"});} });
+	</script>
+
+<script type="text/javascript">
+		   				jQuery(document).ready(function(){
+							
+							
+							onsubmitFunction =  jQuery( "form[id="+"contact-form" +"]").attr('onsubmit');
+							jQuery( "form[id="+"contact-form" +"]").bind('submit',function(e){
+										e.preventDefault();										   
+										var captchaResponse =  true;
+										var formInst = this;
+										var osolCatchaTxtInst = jQuery( "form[id="+"contact-form" +"]").find('input[name=osolCatchaTxtInst]').val();
+										var osolCatchaTxt = jQuery( "form[id="+"contact-form" +"]").find('input[name=osolCatchaTxt]').val();
+										//var osolCatchaTxt = jQuery(this).find('input[name="osolCatchaTxt"]').val();
+										//alert($('osolCaptcha-ajax-container'));
+										  jQuery('#osolCaptcha-ajax-container0').addClass('osolCaptcha-ajax-loading');
+								 			jQuery('#osolCaptcha-ajax-container0').html("Please wait while verifying captcha");
+										  
+										 var data = {verifyCaptcha:'True',instanceNo:osolCatchaTxtInst,osolCatchaTxtInst:osolCatchaTxt}
+										var dataType = 'text';
+										jQuery.ajax({
+												type: 'POST',
+												url: 'https://foto-gruen.de/index.php',
+												data: data,
+												dataType: dataType,//'text',
+												async: false,
+												success: function(responseText){
+														
+																					//alert( responseText);
+																					jQuery('#osolCaptcha-ajax-container0').removeClass('osolCaptcha-ajax-loading').innerHTML = '';
+																					if(responseText == 'false')
+																					{
+																						alert('Das waren leider noch nicht die richtigen Buchstaben. Bitte versuchen Sie es erneut. ')
+																						captchaResponse = false;
+																					}
+																					else
+																					{
+																						//alert( onsubmitFunction);
+																						if( eval(onsubmitFunction) || onsubmitFunction == null )
+																						{
+																							formInst.submit();
+																						}
+																					}
+																					
+																					
+														
+																				}
+						
+		
+										  
+										  
+										  
+											
+											
+										  
+									 });//jQuery.ajax(
+									 return false;
+							})//jQuery( "form[id="+"contact-form" +"]").bind('onsubmit',function(e){
+							//alert(onsubmitFunction);//this was put for testing
+						  });//jQuery(document).ready(function(){
+						
+		   
+					 
+					</script>
+</head>
+<body>
+			<div id="wrapper" style="max-width:980px;">
+							
+		
+			<div id="header_container">
+				
+				<div id="header">
+								
+								
+					<div id="logo">
+																													</div>	
+								
+					<span class="heckl">&nbsp;</span>
+					<span class="heckr">&nbsp;</span>
+				</div>
+						
+				
+		
+								<div id="topmenu_container">
+					<div id="topmenu">
+			             <ul class="nav menu mod-list">
+<li class="item-101 default"><a href="index.html?rCH=-2" >Home</a></li><li class="item-102 deeper parent"><a href="spektrum?rCH=-2" >Spektrum</a><ul class="nav-child unstyled small"><li class="item-149"><a href="spektrum/freisteller?rCH=-2" >Freisteller</a></li><li class="item-152"><a href="spektrum/werbung?rCH=-2" >Werbefotografie</a></li><li class="item-163"><a href="spektrum/gif-animationen?rCH=-2" >Gif-Animationen</a></li><li class="item-166"><a href="https://www.hochzeitsfotos-hanau.de/" >Hochzeitsfotos</a></li></ul></li><li class="item-103 deeper parent"><a href="produkte?rCH=-2" >Produkte</a><ul class="nav-child unstyled small"><li class="item-104"><a href="produkte/1a-produkte?rCH=-2" >1A Produkte</a></li><li class="item-105"><a href="produkte/leinwandfotos?rCH=-2" >Leinwandfotos</a></li><li class="item-106"><a href="produkte/fotos-auf-echtglas?rCH=-2" >Fotos auf Echtglas</a></li><li class="item-107"><a href="produkte/fotos-auf-stein?rCH=-2" >Fotos auf Stein</a></li><li class="item-108"><a href="produkte/3d-laserfoto?rCH=-2" >3D Laserfoto</a></li><li class="item-109"><a href="produkte/fototassen?rCH=-2" >Fototassen</a></li><li class="item-160"><a href="produkte/fotofunartikel?rCH=-2" >Fotofunartikel</a></li></ul></li><li class="item-110"><a href="oeffnungszeiten?rCH=-2" >Öffnungszeiten</a></li><li class="item-111"><a href="anfahrt?rCH=-2" >Anfahrt</a></li><li class="item-112 deeper parent"><a href="bildgalerien?rCH=-2" >Bildgalerien</a><ul class="nav-child unstyled small"><li class="item-113"><a href="bildgalerien/werbung?rCH=-2" >Werbung</a></li><li class="item-157"><a href="bildgalerien/industrie?rCH=-2" >Industrie</a></li><li class="item-158"><a href="bildgalerien/produktfotos?rCH=-2" >Produktfotos</a></li><li class="item-148"><a href="bildgalerien/bewerbung?rCH=-2" >Bewerbung</a></li><li class="item-139"><a href="bildgalerien/tiere?rCH=-2" >Tiere</a></li></ul></li><li class="item-114 current active"><a href="kontakt?rCH=-2" >Kontakt</a></li><li class="item-146"><a href="dsgvo?rCH=-2" >DSGVO</a></li><li class="item-115"><a href="impressum?rCH=-2" >Impressum</a></li><li class="item-116"><a href="agb?rCH=-2" >AGB</a></li></ul>
+
+					</div>
+					<div class="clr"></div>
+				</div>
+								</div>
+				<div id="container">
+							
+		
+							<div id="leftcol">
+		             	<div class="module-outer">
+					<h3 class="moduleh3"><strong>Service</strong>
+				<span class="h3eckl">&nbsp;</span>
+			</h3>
+				<div class="module">
+			<div>
+				<div>
+					<div class="lvround-inner">
+						<ul class="nav menu mod-list">
+<li class="item-118"><a href="passbild?rCH=-2" >Passbild</a></li><li class="item-119"><a href="visa-bilder?rCH=-2" >Visa-Bilder</a></li><li class="item-120"><a href="bildbestellung?rCH=-2" >Bildbestellung</a></li><li class="item-165"><a href="https://foto-gruen.fotograf.de/login" >fotograf.de/login</a></li></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clr"></div>
+		<span class="shadow-left">&nbsp;</span>
+		<span class="shadow-right">&nbsp;</span>
+	</div>
+	
+				</div>
+					
+		    <div id="content_outmiddle">
+					
+		
+				<div id="maincontent">
+					<div id="system-message-container">
+	</div>
+						
+					
+<div class="contact" itemscope itemtype="https://schema.org/Person">
+	
+			<div class="page-header">
+			<h2>
+								<span class="contact-name" itemprop="name">Foto Grün</span>
+			</h2>
+		</div>
+	
+	
+	
+	
+	
+	
+	
+			
+						<div id="slide-contact" class="accordion">						<div class="accordion-group"><div class="accordion-heading"><strong><a href="kontakt?rCH=-2#basic-details" data-toggle="collapse" class="accordion-toggle">Kontakt</a></strong></div><div class="accordion-body collapse in" id="basic-details"><div class="accordion-inner">		
+					<div class="thumbnail pull-right">
+				<img src="images/bilder/beitraege/AbdiePost620.jpg" alt="Foto Grün" itemprop="image" />			</div>
+		
+		
+		<dl class="contact-address dl-horizontal" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+			<dt>
+			<span class="jicons-icons">
+				<img src="media/contacts/images/con_address.png" alt="Adresse: " />			</span>
+		</dt>
+
+					<dd>
+				<span class="contact-street" itemprop="streetAddress">
+					Lise Meitner Str. 36					<br />
+				</span>
+			</dd>
+		
+					<dd>
+				<span class="contact-suburb" itemprop="addressLocality">
+					Hanau - Großauheim					<br />
+				</span>
+			</dd>
+							<dd>
+				<span class="contact-state" itemprop="addressRegion">
+					Hessen					<br />
+				</span>
+			</dd>
+							<dd>
+				<span class="contact-postcode" itemprop="postalCode">
+					63457					<br />
+				</span>
+			</dd>
+						<dd>
+			<span class="contact-country" itemprop="addressCountry">
+				Deutschland				<br />
+			</span>
+		</dd>
+			
+
+	<dt>
+		<span class="jicons-icons">
+			<img src="media/contacts/images/con_tel.png" alt="Telefon: " />		</span>
+	</dt>
+	<dd>
+		<span class="contact-telephone" itemprop="telephone">
+			06181 956292		</span>
+	</dd>
+	<dt>
+		<span class="jicons-icons">
+			<img src="media/contacts/images/con_fax.png" alt="Fax: " />		</span>
+	</dt>
+	<dd>
+		<span class="contact-fax" itemprop="faxNumber">
+		06181 956293		</span>
+	</dd>
+	<dt>
+		<span class="jicons-icons">
+		</span>
+	</dt>
+	<dd>
+		<span class="contact-webpage">
+			<a href="http://www.foto-gruen.de" target="_blank" rel="noopener noreferrer" itemprop="url">
+			http://www.foto-gruen.de</a>
+		</span>
+	</dd>
+</dl>
+
+		
+					</div></div></div>			
+									<div class="accordion-group"><div class="accordion-heading"><strong><a href="kontakt?rCH=-2#display-form" data-toggle="collapse" class="accordion-toggle collapsed">Kontaktformular</a></strong></div><div class="accordion-body collapse" id="display-form"><div class="accordion-inner">		
+		<div class="contact-form">
+	<form id="contact-form" action="kontakt?rCH=-2" method="post" class="form-validate form-horizontal well">
+															<fieldset>
+											<legend>Eine E-Mail senden</legend>
+																<div class="control-group field-spacer">
+			<div class="control-label">
+			<span class="spacer"><span class="before"></span><span class="text"><label id="jform_spacer-lbl" class=""><strong class="red">*</strong> Benötigtes Feld</label></span><span class="after"></span></span>					</div>
+		<div class="controls"> </div>
+</div>
+											<div class="control-group">
+			<div class="control-label">
+			<label id="jform_contact_name-lbl" for="jform_contact_name" class="hasPopover required" title="Name" data-content="Der Name">
+	Name<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls"><input type="text" name="jform[contact_name]" id="jform_contact_name"  value="" class="required" size="30"       required aria-required="true"      />
+</div>
+</div>
+											<div class="control-group">
+			<div class="control-label">
+			<label id="jform_contact_email-lbl" for="jform_contact_email" class="hasPopover required" title="E-Mail" data-content="E-Mail für Kontakt">
+	E-Mail<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls"><input type="email" name="jform[contact_email]" class="validate-email required" id="jform_contact_email" value=""
+ size="30"    autocomplete="email"    required aria-required="true"  /></div>
+</div>
+											<div class="control-group">
+			<div class="control-label">
+			<label id="jform_contact_emailmsg-lbl" for="jform_contact_emailmsg" class="hasPopover required" title="Betreff" data-content="Einen Betreff für die E-Mail eingeben.">
+	Betreff<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls"><input type="text" name="jform[contact_subject]" id="jform_contact_emailmsg"  value="" class="required" size="60"       required aria-required="true"      />
+</div>
+</div>
+											<div class="control-group">
+			<div class="control-label">
+			<label id="jform_contact_message-lbl" for="jform_contact_message" class="hasPopover required" title="Nachricht" data-content="Nachricht hier eingeben.">
+	Nachricht<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls"><textarea name="jform[contact_message]" id="jform_contact_message"  cols="50"  rows="10" class="required"      required aria-required="true"     ></textarea></div>
+</div>
+									</fieldset>
+																		<fieldset>
+																<div class="control-group">
+			<div class="control-label">
+			<label id="jform_captcha-lbl" for="jform_captcha" class="hasPopover required" title="Captcha" data-content="Bitte die Sicherheitsüberprüfung ausfüllen.">
+	Captcha<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls"><div id="jform_captcha" class=" required g-recaptcha" data-sitekey="6LfoitYUAAAAAGxIAfjIeKJrFxImR3GQhMRp9nQL" data-theme="light" data-size="normal" data-tabindex="0" data-callback="" data-expired-callback="" data-error-callback=""></div></div>
+</div>
+									</fieldset>
+																		<fieldset>
+											<legend>Felder</legend>
+																<div class="control-group">
+			<div class="control-label">
+			<label id="jform_com_fields_rufnummer-lbl" for="jform_com_fields_rufnummer" class="required">
+	Rufnummer<span class="star">&#160;*</span></label>
+					</div>
+		<div class="controls"><input type="text" name="jform[com_fields][rufnummer]" id="jform_com_fields_rufnummer"  value="" class="required"        required aria-required="true"      />
+</div>
+</div>
+									</fieldset>
+							<div class="control-group">
+			<div class="controls">
+				
+					<div class="osolCaptchaBlock">
+					<div id="osolCaptcha-ajax-container0"></div>
+					<label for="osolCatchaTxt0">Bitte geben Sie die Buchstaben in das Textfeld ein</label>
+
+
+ 			
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="120" class="osol_captcha_td"  >
+	
+
+	<a href="http://www.outsource-online.net/osol-captcha-for-joomla.html" target="blank" style="font-size:10px" >
+	<img id="captchaCode0" src="index.php?showCaptcha=True&amp;instanceNo=0" alt="Captcha plugin 2+ for Joomla from Outsource Online" /> 
+	</a>
+  
+
+	</td>
+	
+    <td valign="top"  width="170" class="osol_captcha_td">
+	
+			<label>
+       <a href="kontakt?rCH=-2#" onclick="reloadCapthcha(0);return false;" >Schlecht zu erkennen? Ein neues Captcha anzeigen...</a>
+    </label></td>
+	
+    <td valign="top" class="osol_captcha_td"  >
+		<input type="text" name="osolCatchaTxt" id="osolCatchaTxt0"  class="inputbox required validate-captcha" />&nbsp;
+		<input type="hidden" name="osolCatchaTxtInst" id="osolCatchaTxtInst"  value="0"   /><br/>
+	
+	</td>
+  </tr>
+   
+  
+</table>
+</div>
+<button class="btn btn-primary validate" type="submit">E-Mail senden</button>
+				<input type="hidden" name="option" value="com_contact" />
+				<input type="hidden" name="task" value="contact.submit" />
+				<input type="hidden" name="return" value="" />
+				<input type="hidden" name="id" value="1:foto-gruen" />
+				<input type="hidden" name="2e4b99b77fb69d96da30b39807c8677e" value="1" />			</div>
+		</div>
+	</form>
+</div>
+
+					</div></div></div>			
+	
+	
+	
+	
+	
+			</div>	
+	</div>
+
+				</div>
+				<div class="clr"></div>
+				<span class="shadow-left">&nbsp;</span>
+				<span class="shadow-right">&nbsp;</span>
+					
+		
+			</div>
+							<div id="rightcol">
+		             	<div class="module-outer">
+					<h3 class="moduleh3"><strong>Termine</strong>
+				<span class="h3eckr">&nbsp;</span>
+			</h3>
+				<div class="module">
+			<div>
+				<div>
+					<div class="lvround-inner">
+						<ul class="nav menu mod-list">
+<li class="item-169"><a href="vom-7-11-4-26-geschlossen?rCH=-2" >vom 7.-11.4.26  geschlossen</a></li><li class="item-170"><a href="wir-ziehen-um?rCH=-2" >Wir ziehen um !</a></li><li class="item-164"><a href="vorsichtsmassnahme-aufgrund-der-corona-situation-terminvergabe-fuer-alle-anliegen?rCH=-2" >telefonische Terminvergabe für alle Anliegen</a></li><li class="item-171"><a href="https://bilder.foto-gruen.de/Veranstaltung/Umzug0226_webgal/" >Faschingsumzug Großauheim 26</a></li></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clr"></div>
+		<span class="shadow-left">&nbsp;</span>
+		<span class="shadow-right">&nbsp;</span>
+	</div>
+	
+				</div>
+				
+			<div class="clr"></div>
+		</div>
+			
+		
+		
+		<div class="clr"></div>
+	</div>
+			<div id="foot_container" style="max-width:980px;">
+					
+		
+		
+							
+	
+			
+			<div id="subfoot">
+								
+					<div class="copytext">&copy; Fotostudio Roland Grün, Hauptstr.37, 63457 Hanau, Tel.: 0 61 81 - 95 62 92</div>
+							</div>
+					
+	
+		<div class="clr"></div>
+			<div id="footer">
+				<div class="footer-inner">
+					<span class="feckl">&nbsp;</span>
+					<span class="feckr">&nbsp;</span>
+					<div id="scroll_up"> <a href="kontakt?rCH=-2#" class="lv-tooltip" id="gotop" title="Scroll to top">&uarr;&uarr;&uarr;</a></div>
+										</div>
+				<div class="footer-bottom">
+									
+				  		<span id="date">Freitag, 19. Juni 2026</span>
+								  		<span id="copy"><a href="http://www.lernvid.com" title="Joomla Templates" target="_blank">Template designed by LernVid.com</a></span>
+				</div>
+			</div>		
+		<div class="clr"></div>
+	</div>	
+		
+</body>
+</html>

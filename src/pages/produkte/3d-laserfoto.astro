@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ImageGrid from '../../components/ImageGrid.astro';
+
+const images = [
+  { src: 'bilder/beitraege/3d_foto_gedreht.jpg', alt: '3D Laserfoto in gedrehter Ansicht' },
+  { src: 'bilder/beitraege/3d_foto_familie.jpg', alt: '3D Laserfoto einer Familie' },
+  { src: 'bilder/beitraege/3d_foto_herz.jpg', alt: '3D Laserfoto in Herzform' },
+  { src: 'bilder/beitraege/3d_foto_hund.jpg', alt: '3D Laserfoto eines Hundes' },
+];
+---
+
+<Layout
+  title="3D Laserfoto"
+  description="LOOXIS 3D Laserfoto im Fotostudio Roland Grün – Ihr Foto dreidimensional in optisch reinem Viamant® Glas."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Produkte"
+    title="3D Laser Fotos"
+    lead="LOOXIS bringt Ihr Foto in eine neue Dimension – das 3D Laser Foto."
+  />
+
+  <div class="detail-gallery">
+    <ImageGrid images={images} min="12rem" />
+  </div>
+
+  <div class="prose">
+    <p>
+      Optisch reines Viamant® Glas, ohne Schlieren oder Schimmer, gibt Ihrem 3D Laser
+      Foto die Ästhetik, die es so besonders macht.
+    </p>
+    <h2>Vitrographie® – das Licht macht’s möglich!</h2>
+    <p>
+      Hochenergetisches Licht wird so gebündelt, dass im Fokus des Laserstrahls die
+      dreidimensionale Struktur, Ihr 3D Foto, entsteht. Dies geschieht präzise und
+      computergesteuert mit unserem speziellen Lasersystem – wir nennen den Vorgang
+      Vitrographie®. Wir garantieren: Ihr 3D Laser Foto wird sich niemals farblich
+      verändern oder verblassen.
+    </p>
+    <p>
+      Egal ob als außergewöhnliches Geschenk, dreidimensionale Erinnerung oder
+      einmaliger Blickfang – machen Sie Ihr Foto einzigartig!
+    </p>
+    <h2>So funktioniert’s</h2>
+    <p>
+      Die Grafiker von Looxis wissen intuitiv, wie ein flaches, zweidimensionales Foto
+      in der dreidimensionalen Realität aussehen würde. Mit diesem intuitiven Wissen und
+      einer eigens entwickelten Software geben unsere Grafiker Ihrem Foto die dritte
+      Dimension.
+    </p>
+    <p>
+      Sehen Sie sich die Muster live bei uns im Atelier an oder bestellen Sie direkt
+      über den Looxis Partnershop:
+      <a href="https://looxis.shop/foto-gruen" target="_blank" rel="noopener noreferrer">looxis.shop/foto-gruen</a>
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .detail-gallery {
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+</style>

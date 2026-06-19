@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ContentImage from '../../components/ContentImage.astro';
+---
+
+<Layout
+  title="Fototassen"
+  description="Individuelle Fototassen und das Großauheimer Koppche vom Fotostudio Roland Grün."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Produkte"
+    title="Großauheimer Koppche"
+    lead="Die Tasse mit Lokalkolorit – und natürlich Ihr Wunschmotiv."
+  />
+
+  <div class="tassen">
+    <ContentImage
+      src="bilder/beitraege/Tassen_Auheimer_Koppche_.jpg"
+      alt="Großauheimer Koppche – Fototassen"
+      sizes="(max-width: 700px) 100vw, 45vw"
+    />
+    <div class="prose">
+      <p>
+        Natürlich erstellen wir Ihnen auch gerne individualisierte Fototassen mit Ihrem
+        Wunschmotiv. Sprechen Sie uns einfach an! ;)
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .tassen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .tassen {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

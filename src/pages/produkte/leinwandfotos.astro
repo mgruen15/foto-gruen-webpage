@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ImageGrid from '../../components/ImageGrid.astro';
+
+const images = [
+  { src: 'bilder/beitraege/CanvasaufKeil.jpg', alt: 'Leinwandfoto auf Keilrahmen' },
+  { src: 'bilder/beitraege/CanvasaufKeil2.jpg', alt: 'Leinwandfoto auf Keilrahmen, Detailansicht' },
+];
+---
+
+<Layout
+  title="Leinwandfotos"
+  description="Leinwandfotos auf Keilrahmen vom Fotostudio Roland Grün – hochwertiger Druck auf Künstlerleinen mit plastischer Tiefenwirkung."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Produkte"
+    title="Leinwandfotos auf Keilrahmen"
+    lead="So einfach gibt man einem Raum eine individuelle Note."
+  />
+
+  <div class="detail-gallery">
+    <ImageGrid images={images} min="16rem" />
+  </div>
+
+  <div class="prose">
+    <p>
+      So einfach kann man einem Raum eine individuelle Note geben. Im hochwertigen Druck
+      auf Künstlerleinen kommen Fotos besonders gut zur Geltung. Leinwandfotos auf
+      Keilrahmen sind ein stilvolles Produkt, das voll im Trend liegt. Die plastische
+      Tiefenwirkung des Keilrahmens macht eine zusätzliche Rahmung meist unnötig.
+    </p>
+    <p>
+      Der hochwertige Druck auf Künstlerleinen sorgt für brillante Farbwirkung und hohe
+      Lichtstabilität. Die Farben sind lösungsmittelfrei und deshalb für Innenräume
+      bestens geeignet. Mit einer umlaufenden Randbedruckung von 3 cm wird das
+      Leinwandfoto auf einen stabilen Holzrahmen (Keilrahmen) aufgezogen. Auch
+      ungewöhnliche Fotoformate wie Panoramas oder Quadrate sind realisierbar.
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .detail-gallery {
+    margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+</style>

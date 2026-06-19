@@ -1,0 +1,17 @@
+
+.osolCaptchaBlock{
+	width:100%;
+}
+.osolCaptchaBlock label{
+	
+}
+.osolCaptchaBlock table td{
+	
+	text-align:center;
+}
+.osolCaptcha-ajax-loading{
+	background: url("ajax-loader.gif") no-repeat left top transparent;
+	min-height:20px;
+	padding-left:22px;
+}
+@media (max-width: 576px){ .osolCaptchaBlock table tr{ display: grid; } } 

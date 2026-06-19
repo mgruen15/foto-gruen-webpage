@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Seite nicht gefunden" description="Die aufgerufene Seite wurde nicht gefunden." fullWidth>
+  <PageHero slot="hero" eyebrow="Fehler 404" title="Seite nicht gefunden" />
+
+  <div class="notfound">
+    <p class="prose">
+      Die von Ihnen aufgerufene Seite existiert leider nicht (mehr). Vielleicht hilft Ihnen
+      einer der folgenden Links weiter:
+    </p>
+    <div class="notfound__actions">
+      <a class="btn" href="/"><span>Zur Startseite</span></a>
+      <a class="btn btn--ghost" href="/bildgalerien/bewerbung"><span>Bildgalerien</span></a>
+      <a class="btn btn--ghost" href="/kontakt"><span>Kontakt</span></a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .notfound {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+  .notfound__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+</style>

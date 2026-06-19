@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Map from '../components/Map.astro';
+import { contact } from '../data/site';
+---
+
+<Layout
+  title="Anfahrt"
+  description="Anfahrt zum Fotostudio Roland Grün in Hanau-Großauheim, Lise-Meitner-Straße 36 – verkehrsgünstig mit optimalen Parkmöglichkeiten."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Anfahrt"
+    title="Anfahrt zu Fotostudio Grün"
+    lead="Verkehrsgünstig gelegen in Hanau-Großauheim, mit optimalen Parkmöglichkeiten."
+  />
+
+  <div class="anfahrt">
+    <div class="anfahrt__info">
+      <address class="anfahrt__addr">
+        <strong>Fotostudio Roland Grün</strong><br />
+        {contact.street}<br />
+        {contact.zip} {contact.town}
+      </address>
+      <div class="prose">
+        <p>
+          Sie finden das Fotostudio Grün in Hanau, Ortsteil Großauheim, sehr
+          verkehrsgünstig gelegen mit optimalen Parkmöglichkeiten.
+        </p>
+        <p>
+          Bitte avisieren Sie uns zuvor Ihren Besuch in der Lise-Meitner-Straße 36 in
+          63457 Hanau.
+        </p>
+      </div>
+      <a class="btn" href={contact.phoneHref}><span>Anrufen: {contact.phone}</span></a>
+    </div>
+
+    <Map />
+  </div>
+</Layout>
+
+<style>
+  .anfahrt {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .anfahrt {
+      grid-template-columns: 1fr;
+    }
+  }
+  .anfahrt__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .anfahrt__addr {
+    font-style: normal;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .anfahrt .btn {
+    align-self: flex-start;
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+// Privacy-friendly OpenStreetMap embed (no API key, no Google). Centered on
+// Lise-Meitner-Straße 36, 63457 Hanau-Großauheim.
+const lat = 50.1106;
+const lon = 8.9469;
+const d = 0.006;
+const bbox = `${lon - d}%2C${lat - d}%2C${lon + d}%2C${lat + d}`;
+const src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lon}`;
+const big = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=17/${lat}/${lon}`;
+---
+
+<div class="map">
+  <iframe
+    class="map__frame"
+    title="Karte: Fotostudio Roland Grün, Lise-Meitner-Straße 36, 63457 Hanau"
+    src={src}
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <a class="map__link link-underline" href={big} target="_blank" rel="noopener noreferrer">
+    Größere Karte auf OpenStreetMap ansehen ↗
+  </a>
+</div>
+
+<style>
+  .map {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .map__frame {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--line);
+  }
+  .map__link {
+    align-self: flex-start;
+    font-size: 0.85rem;
+    color: var(--forest);
+  }
+</style>

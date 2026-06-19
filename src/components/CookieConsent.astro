@@ -1,0 +1,104 @@
+---
+// Privacy consent banner. The rebuild ships no non-essential trackers by
+// default, so "decline" simply records the choice; "accept" would gate any
+// future optional embeds. Choice is persisted in localStorage.
+---
+
+<div class="consent" data-consent hidden>
+  <div class="consent__inner">
+    <div class="consent__text">
+      <h2 class="consent__title">Wir benutzen Cookies</h2>
+      <p>
+        Einige Cookies sind essenziell für den Betrieb der Seite, während andere
+        uns helfen, diese Website und Ihre Nutzererfahrung zu verbessern. Sie
+        entscheiden selbst, ob Sie nicht-essenzielle Cookies zulassen. Mehr dazu
+        in unserer <a href="/dsgvo">Datenschutzerklärung</a>.
+      </p>
+    </div>
+    <div class="consent__actions">
+      <button class="btn btn--ghost" type="button" data-consent-decline><span>Ablehnen</span></button>
+      <button class="btn" type="button" data-consent-accept><span>Akzeptieren</span></button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .consent {
+    position: fixed;
+    left: 50%;
+    bottom: clamp(0.75rem, 2vw, 1.5rem);
+    transform: translateX(-50%) translateY(0);
+    z-index: 150;
+    width: min(58rem, calc(100% - 1.5rem));
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    box-shadow: 0 24px 60px -28px rgba(18, 34, 23, 0.5);
+    animation: consent-in 0.5s var(--ease);
+  }
+  @keyframes consent-in {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(1rem);
+    }
+  }
+  .consent__inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+    padding: clamp(1rem, 0.75rem + 1.5vw, 1.6rem);
+  }
+  .consent__title {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+  .consent__text p {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    max-width: 60ch;
+  }
+  .consent__text a {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--crimson);
+    text-underline-offset: 2px;
+  }
+  .consent__actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .consent__inner {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .consent__actions {
+      justify-content: stretch;
+    }
+    .consent__actions .btn {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  const KEY = 'fg-consent';
+  const banner = document.querySelector<HTMLElement>('[data-consent]');
+  if (banner && !localStorage.getItem(KEY)) {
+    banner.hidden = false;
+  }
+  function decide(value: 'accepted' | 'declined') {
+    try {
+      localStorage.setItem(KEY, value);
+    } catch {
+      /* storage unavailable — banner just closes for this session */
+    }
+    if (banner) banner.hidden = true;
+  }
+  banner?.querySelector('[data-consent-accept]')?.addEventListener('click', () => decide('accepted'));
+  banner?.querySelector('[data-consent-decline]')?.addEventListener('click', () => decide('declined'));
+</script>

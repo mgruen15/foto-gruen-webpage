@@ -1,0 +1,172 @@
+---
+import { serviceLinks, news } from '../data/site';
+---
+
+<aside class="sidebar" aria-label="Service und Aktuelles">
+  <section class="side-card">
+    <h2 class="side-card__title">Service</h2>
+    <ul class="quick-links">
+      {
+        serviceLinks.map((link) => (
+          <li>
+            <a
+              class="quick-link"
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+            >
+              <span>{link.label}</span>
+              <span class="quick-link__arrow" aria-hidden="true">
+                {link.external ? '↗' : '→'}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="side-card side-card--dark">
+    <h2 class="side-card__title">Termine &amp; News</h2>
+    <ul class="news">
+      {
+        news.map((item) => {
+          const Tag = item.href ? 'a' : 'div';
+          return (
+            <li class:list={['news__item', { 'news__item--hot': item.highlight }]}>
+              <Tag
+                class="news__inner"
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+              >
+                <h3 class="news__title">
+                  {item.title}
+                  {item.external && <span class="news__ext" aria-hidden="true">↗</span>}
+                </h3>
+                <p class="news__body">{item.body}</p>
+              </Tag>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+</aside>
+
+<style>
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 6rem;
+  }
+  @media (max-width: 900px) {
+    .sidebar {
+      position: static;
+    }
+  }
+
+  .side-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .side-card__title {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .quick-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .quick-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+    transition: color var(--dur) var(--ease), padding-left var(--dur) var(--ease);
+  }
+  .quick-links li:first-child .quick-link {
+    border-top: 0;
+  }
+  .quick-link:hover {
+    color: var(--crimson);
+    padding-left: 0.35rem;
+  }
+  .quick-link__arrow {
+    color: var(--crimson);
+    transition: transform var(--dur) var(--ease);
+  }
+  .quick-link:hover .quick-link__arrow {
+    transform: translateX(3px);
+  }
+
+  /* News */
+  .side-card--dark {
+    background: var(--forest-deep);
+    border-color: var(--forest-deep);
+    color: #eef2ee;
+  }
+  .side-card--dark .side-card__title {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .news {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .news__inner {
+    display: block;
+    padding: 0.9rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius);
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .news__item--hot .news__inner {
+    border-left-color: var(--crimson);
+  }
+  a.news__inner:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-left-color: var(--crimson);
+  }
+  .news__title {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .news__ext {
+    color: var(--crimson);
+    font-size: 0.8rem;
+  }
+  .news__body {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: rgba(238, 242, 238, 0.78);
+  }
+</style>

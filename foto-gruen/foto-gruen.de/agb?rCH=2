@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de" >
+<head>
+	<meta name="designer" content="Juergen Koller - http://www.lernvid.com" />
+<meta name="licence" content="Creative Commons 3.0" />
+<link href="templates/allrounder-3/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+<!--- ADD CSS Files -->
+
+
+
+	<link href="templates/allrounder-3/css/template.css" rel="stylesheet" type="text/css" media="all" />
+<!--
+	<link href="/templates/allrounder-3/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+-->
+	<link href="templates/allrounder-3/css/joomla.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/colors.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/lvdropdown.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/typo.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="templates/allrounder-3/css/modules.css" rel="stylesheet" type="text/css" media="all" />
+	
+<!--- Older Browser CSS -->
+<!--[if IE 7]>
+	<link href="/templates/allrounder-3/css/ie7.css" rel="stylesheet" type="text/css" media="all" />
+<![endif]-->
+
+<!--- ADD JavaScript Files -->
+
+	<script type="text/javascript" src="templates/allrounder-3/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		var jq = jQuery.noConflict();
+	</script>
+	<script type="text/javascript" src="templates/allrounder-3/js/lv-dropdown.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/jq.easy-tooltip.min.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/jq.easy-caption.min.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/reflection.js"></script>
+	<script type="text/javascript" src="templates/allrounder-3/js/effects.js"></script>
+
+
+<!-- Layout parameters -->
+	<style type="text/css">
+
+	/* Template layout parameters */
+	
+
+	#wrapper {
+		margin-top:10px;
+	}
+	#foot_container {
+		margin-bottom:0px;
+	}
+	#topmenu ul.menu, #topmenu ul.menu li a, #topmenu ul.menu li span.separator {
+		background-image: url('templates/allrounder-3/images/dropdown-smooth.png');
+	}
+	#topmenu ul.menu li.parent a, #topmenu ul.menu li.parent span.separator {
+		background-image: url('templates/allrounder-3/images/menu-parent-smooth.png');
+	}
+	#topmenu ul.menu li.parent a:hover, #topmenu ul.menu li.parent span.separator:hover, 
+	#topmenu ul.menu li#current.parent a, #topmenu ul.menu li#current.parent span.separator {
+		background-image: url('templates/allrounder-3/images/menu-parent-hover-smooth.png');
+	}
+				.page-header h2, h2.item-title {
+			background-image: none !important;
+		    padding-left: 0px !important;
+		    line-height: normal !important;
+		}
+		
+</style>
+<!-- Define fonts -->
+	<style type="text/css">
+
+	/* Template fonts */
+	
+	body {
+		font-size:14px;
+
+					font-family:Arial, Helvetica, Sans-Serif;
+						line-height:1.3em;
+	}
+
+</style>
+<!-- ADD own template colors -->
+	<style type="text/css">
+
+	/* Template colors */
+
+	body {
+		background-color: #19803B;
+		color: #555555;
+	}
+	span#copy a {
+		color: #555555;
+	}
+	a, a:link, a:visited, a:active, a:focus {
+		color: #26BF26;
+	}
+
+	#wrapper, #foot_container {
+		background-color: #D4EBD3;
+		border: 1px solid #849183;
+	}
+
+	
+	#header {
+		background-color: #383838;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;	
+		border-right:1px solid #000000;	
+	}
+	.heckl, .heckr {  
+		border-top: 10px solid #222222;
+	}
+
+	#footer {
+		background-color: #222222;
+		border:1px solid #444444;
+		border-bottom:2px solid #444444;
+	}
+	.feckl, .feckr {  
+		border-bottom: 10px solid #222222;
+	}
+	#footer a#gotop {
+		color: #89C48B;
+	}
+	#footermodule1234, #footermodule1234 a, #footermodule1234 ul.menu, #footermodule5, #footermodule5 a {
+		color: #89C48B;
+	}
+	#subfoot {
+		background-color: #313131;
+		border-top:1px solid #FFFFFF;
+		border-bottom:1px solid #222222;
+	}
+	.copytext {
+		color: #26BF26;
+	}
+
+	#maincontent {
+		background-color: #F9F9F9;
+		border: 3px double #D4EBD3;
+	}
+	
+	.item-page, .item, .leading-0, .leading-1, .leading-2, .leading-3, .leading-4, .leading-5, .contact,
+	#maincontent div.search, #maincontent .categories-list, #maincontent .category-list, 
+	#maincontent .archive , #maincontent .contact-category, #maincontent .weblink-category, 
+	#maincontent .newsfeed-category, #maincontent .login, #maincontent .profile, #maincontent .profile-edit, 
+	#maincontent .registration, #maincontent .remind, #maincontent .reset, #maincontent .finder {
+		background-color:#FFFFFF;
+		border: 1px solid #E9E9E9;
+	}
+
+	.page-header h2, .page-header h2 a {
+		color: #81B881 !important;
+	}
+
+	#wrapper #leftcol h3.moduleh3, #wrapper #rightcol h3.moduleh3	 {
+		background-color: #383838;
+		border-top:	1px solid #555555;
+		color: #DDDDDD;
+	}
+	#wrapper #leftcol h3.moduleh3	 {
+		border-left: 1px solid #999999;
+		border-right: 1px solid #555555;
+	}
+	#wrapper #rightcol h3.moduleh3	 {
+		border-right: 1px solid #999999;
+		border-left: 1px solid #555555;
+	}
+	.h3eckl, .h3eckr {  
+		border-top: 10px solid #222222;
+	}
+
+	#leftcol .module div.lvround-inner, #leftcol .module_menu div.lvround-inner, #leftcol .module_text div.lvround-inner, 
+	#rightcol .module div.lvround-inner, #rightcol .module_menu div.lvround-inner, #rightcol .module_text div.lvround-inner {
+		background-color: #F9F9F9;
+		border: 1px solid #DDDDDD;
+		color: #505050;
+	}
+	#subhead {
+		background-color: #F9F9F9;
+		border: 1px solid #FFFFFF;
+	}
+	.breadcrumbs, .breadcrumbs span {
+		color: #849183;
+	}
+	#leftcol .module div div, #leftcol .module_menu div div, #leftcol .module_text div div, 
+	#rightcol .module div div, #rightcol .module_menu div div, #rightcol .module_text div div {
+		border: 1px solid #FFFFFF;
+	}
+
+	/**** Global Modules ****/
+
+	div.module {
+		color:#505050;
+		background-color:#FFFFFF;
+		border:1px solid #DDDDDD;
+	}
+	div.module h3.moduleh3 {
+		background-color:#EFEFEF;
+		border:1px solid #DDDDDD;
+	}
+
+
+	.input, .inputbox {
+		color: #555555;
+		background-color: #EFEFEF;
+		border-top: 1px solid #CCCCCC;
+		border-left: 1px solid #CCCCCC;
+		border-right: 1px solid #FFFFFF;
+		border-bottom: 1px solid #FFFFFF;
+	}
+	.input:hover, .inputbox:hover {
+		color: #555555;
+		background-color: #F9F9F9;
+	}
+
+	input.button, button.button, button.validate, .pagenav, ul.pagenav li a {
+		color: #555;
+		background-color: #efefef;
+		color: #555555;
+		background-color: #EFEFEF;
+		border-top: 1px solid #CCCCCC;
+		border-left: 1px solid #CCCCCC;
+		border-right: 1px solid #FFFFFF;
+		border-bottom: 1px solid #FFFFFF;
+	}
+	input.button:hover, button.button:hover, button.validate:hover, .pagenav, ul.pagenav li a:hover {
+		color: #000000;
+		background-color: #FFFFFF;
+	}
+
+	/**** Mainmenu with suffix: _menu ****/
+	
+	.module_menu ul.menu li a, .module_menu ul.menu li span.separator {
+		color: #333333;
+		border-bottom:1px dotted #CCCCCC;
+	}
+	.module_menu ul.menu li a:hover, .module_menu ul.menu li a:active, .module_menu ul.menu li a:focus {
+		color: #26BF26!important;
+	}
+	.module_menu ul.menu li.current a {
+		color: #26BF26;
+	}
+	.module_menu ul.menu li.current ul li a {
+		color: #000000;
+	}
+
+	/**** Default Tooltips ****/
+
+	.easy-tooltip-default {
+		border: 1px solid #A6A7AB; 
+		background-color: #F2F3F5; 
+		color: #26BF26;
+	}
+
+
+</style>
+<!-- ADD own dropdown-menu colors -->
+	<style type="text/css">
+
+	/* Dropdown menu colors */
+
+	#topmenu ul.menu {
+		background-color:#222222 !important;
+		border-top:3px double #FFFFFF !important;
+		border-bottom:3px double #FFFFFF !important;
+	}
+	#topmenu ul.menu li {
+		border-right:1px solid #555555 !important;
+	}
+	#topmenu ul.menu li a, #topmenu ul.menu li span.separator {
+		border-top:1px solid #000000 !important;
+		border-right:1px solid #222222 !important;
+		border-left:1px solid #000000 !important;
+		border-bottom:1px solid #333333 !important;
+		color:#CCCCCC;
+		background-color:#222222;
+	}
+	#topmenu ul.menu a:hover {
+		color:#26BF26;
+	}
+	
+	/** LEVEL 2 **/
+	#topmenu ul.menu ul {
+		border:2px solid #000000 !important;
+		background-color:#222222;
+	}
+	#topmenu ul.menu li ul li a, #topmenu ul.menu li ul li span.separator {
+		border-top:1px solid #000000 !important;
+		border-right:1px solid #333333 !important;
+		border-left:1px solid #333333 !important;
+		border-bottom:1px solid #333333 !important;
+		color:#999999;
+	}
+	#topmenu ul.menu li ul li a:hover {
+		color:#26BF26;
+	}
+	#topmenu ul.menu li li {
+		background-color:#171717;
+	}
+	#topmenu ul.menu li li:hover {
+		background-color:#212121;
+	}
+
+</style>
+
+
+
+
+<!-- math the width of the 3 columns -->
+<style type="text/css">
+	#leftcol {width: 12%;}
+	#rightcol {width: 15%;}
+	#content_outmiddle {width: 71%;}
+	#content_outright {width: 84%;}
+	#content_outleft {width: 87%;}
+</style>
+
+	<base href="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Foto Fotostudio Grün Fotograf Fotoatelier Potraitfoto Fotografie Hanau Passbild Passfoto Bewerbungsfoto Businessportrait Industriefotografie Werbefotografie Reportage Hochzeitsfotografie" />
+	<meta name="author" content="Super User" />
+	<meta name="description" content="Fotostudio Roland Grün, Atelier für Fotografie im Handwerk in Hanau - Großauheim." />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>AGB</title>
+	<link href="templates/allrounder-3/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="plugins/system/osolcaptcha/osolCaptcha/captchaStyle.css" rel="stylesheet" type="text/css" />
+	<script src="media/jui/js/jquery.min.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/jui/js/jquery-noconflict.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/jui/js/jquery-migrate.min.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script src="media/system/js/caption.js?92ad3983fbded8fa4bcdd1acd985dbcd" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		   
+		   				function reloadCapthcha(instanceNo)
+						{
+							var captchaSrc = "https://foto-gruen.de/index.php?showCaptcha=True&instanceNo="+instanceNo+"&time="+ new Date().getTime();
+							//alert(captachaSrc);
+							//alert(document.getElementById('captchaCode'+instanceNo));
+							document.getElementById('captchaCode'+instanceNo).src = captchaSrc ;
+							//alert(document.getElementById('captchaCode'+instanceNo).src);
+						} 
+						jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+	</script>
+
+<script type="text/javascript"></script>
+</head>
+<body>
+			<div id="wrapper" style="max-width:980px;">
+							
+		
+			<div id="header_container">
+				
+				<div id="header">
+								
+								
+					<div id="logo">
+																													</div>	
+											<div id="headermodule2">
+							<div class="bannergroup">
+
+	<div class="banneritem">
+																																																		<img
+						src="images/Logowstudio%20fr%20web%20small.jpg"
+						alt="Logo"
+																	/>
+											<div class="clr"></div>
+	</div>
+
+</div>
+
+							<div class="clr"></div>
+						</div>
+								
+					<span class="heckl">&nbsp;</span>
+					<span class="heckr">&nbsp;</span>
+				</div>
+						
+				
+		
+								<div id="topmenu_container">
+					<div id="topmenu">
+			             <ul class="nav menu mod-list">
+<li class="item-101 default"><a href="index.html?rCH=-2" >Home</a></li><li class="item-102 deeper parent"><a href="spektrum?rCH=-2" >Spektrum</a><ul class="nav-child unstyled small"><li class="item-149"><a href="spektrum/freisteller?rCH=-2" >Freisteller</a></li><li class="item-152"><a href="spektrum/werbung?rCH=-2" >Werbefotografie</a></li><li class="item-163"><a href="spektrum/gif-animationen?rCH=-2" >Gif-Animationen</a></li><li class="item-166"><a href="https://www.hochzeitsfotos-hanau.de/" >Hochzeitsfotos</a></li></ul></li><li class="item-103 deeper parent"><a href="produkte?rCH=-2" >Produkte</a><ul class="nav-child unstyled small"><li class="item-104"><a href="produkte/1a-produkte?rCH=-2" >1A Produkte</a></li><li class="item-105"><a href="produkte/leinwandfotos?rCH=-2" >Leinwandfotos</a></li><li class="item-106"><a href="produkte/fotos-auf-echtglas?rCH=-2" >Fotos auf Echtglas</a></li><li class="item-107"><a href="produkte/fotos-auf-stein?rCH=-2" >Fotos auf Stein</a></li><li class="item-108"><a href="produkte/3d-laserfoto?rCH=-2" >3D Laserfoto</a></li><li class="item-109"><a href="produkte/fototassen?rCH=-2" >Fototassen</a></li><li class="item-160"><a href="produkte/fotofunartikel?rCH=-2" >Fotofunartikel</a></li></ul></li><li class="item-110"><a href="oeffnungszeiten?rCH=-2" >Öffnungszeiten</a></li><li class="item-111"><a href="anfahrt?rCH=-2" >Anfahrt</a></li><li class="item-112 deeper parent"><a href="bildgalerien?rCH=-2" >Bildgalerien</a><ul class="nav-child unstyled small"><li class="item-113"><a href="bildgalerien/werbung?rCH=-2" >Werbung</a></li><li class="item-157"><a href="bildgalerien/industrie?rCH=-2" >Industrie</a></li><li class="item-158"><a href="bildgalerien/produktfotos?rCH=-2" >Produktfotos</a></li><li class="item-148"><a href="bildgalerien/bewerbung?rCH=-2" >Bewerbung</a></li><li class="item-139"><a href="bildgalerien/tiere?rCH=-2" >Tiere</a></li></ul></li><li class="item-114"><a href="kontakt?rCH=-2" >Kontakt</a></li><li class="item-146"><a href="dsgvo?rCH=-2" >DSGVO</a></li><li class="item-115"><a href="impressum?rCH=-2" >Impressum</a></li><li class="item-116 current active"><a href="agb?rCH=-2" >AGB</a></li></ul>
+
+					</div>
+					<div class="clr"></div>
+				</div>
+								</div>
+				<div id="container">
+							
+		
+							<div id="leftcol">
+		             	<div class="module-outer">
+					<h3 class="moduleh3"><strong>Service</strong>
+				<span class="h3eckl">&nbsp;</span>
+			</h3>
+				<div class="module">
+			<div>
+				<div>
+					<div class="lvround-inner">
+						<ul class="nav menu mod-list">
+<li class="item-118"><a href="passbild?rCH=-2" >Passbild</a></li><li class="item-119"><a href="visa-bilder?rCH=-2" >Visa-Bilder</a></li><li class="item-120"><a href="bildbestellung?rCH=-2" >Bildbestellung</a></li><li class="item-165"><a href="https://foto-gruen.fotograf.de/login" >fotograf.de/login</a></li></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clr"></div>
+		<span class="shadow-left">&nbsp;</span>
+		<span class="shadow-right">&nbsp;</span>
+	</div>
+	
+				</div>
+					
+		    <div id="content_outmiddle">
+					
+		
+				<div id="maincontent">
+					<div id="system-message-container">
+	</div>
+						
+					<div class="item-page" itemscope itemtype="https://schema.org/Article">
+	<meta itemprop="inLanguage" content="de-DE" />
+	
+		
+			<div class="page-header">
+					<h2 itemprop="headline">
+				AGB			</h2>
+									</div>
+					
+		
+	
+	
+		
+								<div itemprop="articleBody">
+		<p>AGB des Photographen-Handwerks (Bundesanzeiger Nr. 88 vom 15. Mai 2002 - Seite<br />10.436)</p>
+<p><br />I. Allgemeines<br />1. Die nachfolgenden AGB gelten fuer alle dem Fotografen erteilten Auftraege. Sie gelten<br />als vereinbart, wenn ihnen nicht umgehend widersprochen wird.<br />2. "Lichtbilder" im Sinne dieser AGB sind alle vom Fotografen hergestellten Produkte,<br />gleich in welcher technischer Form oder in welchem Medium sie erstellt wurden oder<br />vorliegen. (Negative, Dia-Positive, Papierbilder, Still-Videos, elektronische Stehbilder in<br />digitalisierter Form, Videos usw.)</p>
+<p><br />II. Urheberrecht<br />1. Dem Fotografen steht das Urheberrecht an den Lichtbildern nach Massgabe des<br />Urheberrechtsgesetzes zu.<br />2. Die vom Fotografen hergestellten Lichtbilder sind grundsaetzlich nur fuer den eigenen<br />Gebrauch des Auftraggebers bestimmt.<br />3. Uebertraegt der Fotograf Nutzungsrechte an seinen Werken, ist - sofern nicht<br />ausdruecklich etwas anderes vereinbart wurde - jeweils nur das einfache Nutzungsrecht<br />uebertragen, Eine Weitergabe von Nutzungsrechten bedarf der besonderen Vereinbarung.<br />4. Die Nutzungsrechte gehen erst ueber nach vollstaendiger Bezahlung des Honorars an<br />den Fotografen.<br />5. Der Besteller eines Bildes im Sinne vom Paragraphen 60 UrhG hat kein Recht, das<br />Lichtbild zu vervielfaeltigen und zu verbreiten, wenn nicht die entsprechenden<br />Nutzungsrechte uebertragen worden sind. Paragraph 60 UrhG wird ausdruecklich<br />abbedungen.<br />6. Bei der Verwertung der Lichtbilder kann der Fotograf, sofern nichts anderes vereinbart<br />wurde, verlangen, als Urheber des Lichtbildes genannt zu werden. Eine Verletzung des<br />Rechts auf Namensnennung berechtigt den Fotografen zum Schadensersatz.<br />7. Die Negative/Daten verbleiben beim Fotografen. Eine Herausgabe der Negative/Daten<br />an den Auftraggeber erfolgt nur bei gesonderter Vereinbarung.</p>
+<p><br />III. Verguetung, Eigentumsvorbehalt<br />1. Fuer die Herstellung der Lichtbilder wird ein Honorar als Stundensatz, Tagessatz oder<br />eine vereinbarte Pauschale zuzueglich der gesetzlichen Mehrwertsteuer berechnet;<br />Nebenkosten (Reisekosten, Modellhonorare, Spesen, Requisiten, Labor- und<br />Studiomieten ect.) sind vom Auftraggeber zu tragen. Gegenueber Endverbrauchern weist<br />der Fotograf die Endpreise inklusive Mehrwertsteuer aus.<br />2. Faellige Rechnungen sind innerhalb von 14 Tagen ohne Abzug zu zahlen. Der<br />Auftraggeber geraet in Verzug, wenn er faellige Rechnungen nicht spaetestens 30 (in<br />Worten: dreissig) Tage nach Zugang einer Rechnung oder gleichwertigen<br />Zahlungsaufforderung begleicht. Dem Fotografen bleibt vorbehalten, den Verzug durch<br />Erteilung einer nach Faelligkeit zugehenden Mahnung zu einem frueheren Zeitpunkt<br />herbeizufuehren.<br />3. Bis zur vollstaendigen Bezahlung des Kaufpreises bleiben die gelieferten Lichtbilder<br />Eigentum des Fotografen.<br />4. Hat der Auftraggeber dem Fotografen keine ausdruecklichen Weisungen hinsichtlich<br />der Gestaltung der Lichtbilder gegeben, so sind Reklamationen bezueglich der<br />Bildauffassung sowie der kuenstlerisch-technischen Gestaltung ausgeschlossen.<br />Wuenscht der Auftraggeberwaehrend oder nach einer Aufnahmeproduktion Aenderungen,<br />so hat er die Mehrkosten zu tragen. Der Fotograf behaelt den Verguetungs-Anspruch fuer<br />bereits begonnene Arbeiten.</p>
+<p><br />IV. Haftung<br />1. Fuer die Verletzung von Pflichten, die nicht in unmittelbarem Zusammenhang mit<br />wesentlichen Vertragspflichten stehen, haftet der Fotograf fuer sich und seine<br />Erfuellungsgehilfen nur bei Vorsatz und grober Fahrlaessigkeit. Er haftet ferner fuer<br />Schaeden aus der Verletzung des Lebens, des Koerpers oder der Gesundheit sowie aus<br />der Verletzung wesentlicher Vertragspflichten, die er oder seine Erfuellungsgehilfen durch<br />schuldhafte Pflichtverletzung herbeigefuehrt haben. Fuer Schaeden an<br />Aufnahmeobjekten, Vorlagen, Filmen, Displays, Layouts, Negativen oder Daten haftet der<br />Fotograf - wenn nichts anderes Vereinbart wurde - nur bei Vorsatz und grober<br />Fahrlaessigkeit.<br />2. Der Fotograf verwahrt die Negative/Daten sorgfaeltig. Er ist berechtigt, aber nicht<br />verpflichtet, von ihm aufbewahrte Negative/Daten nach drei Jahren seit Beendigung des<br />Auftrags zu vernichten. Vor der Vernichtung benachrichtigt er den Auftraggeber und<br />bietet ihm die Negative/Daten zum Kauf an.<br />3. Der Fotograf haftet fuer Lichtbestaendigkeit und Dauerhaftigkeit der Lichtbilder nur im<br />Rahmen der Garantieleistungen der Hersteller des Fotomaterials.<br />4. Die Zusendung und Ruecksendung von Filmen, Bildern und Vorlagen erfolgt auf Kosten<br />und Gefahr des Auftraggebers. Der Auftraggeber kann bestimmen, wie und durch wen<br />die Ruecksendung erfolgt</p>
+<p><br />V. Nebenpflichten<br />1. Der Auftraggeber versichert, dass er an allen dem Fotografen uebergebenen Vorlagen<br />das Vervielfaeltigungs- und Verbreitungsrecht sowie bei Personenbildnissen die<br />Einwilligung der abgebildeten Personen zur Veroeffentlichung, Vervielfaeltigung und<br />Verbreitung besitz. Ersatzansprueche Dritter, die auf der Verletzung dieser Pflicht<br />beruhen, traegt der Auftraggeber.<br />2. Der Auftraggeber verpflichtet sich, die Aufnahmeobjekte rechtzeitig zur Verfuegung zu<br />stellen und unverzueglich nach der Aufnahme wieder abzuholen. Holt der Auftraggeber<br />nach Aufforderung die Aufnahmeobjekte nicht spaetestens nach zwei Werktagen ab, ist<br />der Fotograf berechtigt, gegebenenfalls Lagerkosten zu berechnen oder bei Blockierung<br />seiner Studioraeume die Gegenstaende auf Kosten des Auftraggebers auszulagern.<br />Transport- und Lagerkosten gehen zu Lasten des Auftraggebers.</p>
+<p><br />VI. Leistungsstoerung, Ausfallhonorar<br />1. ueberlaesst der Fotograf dem Auftraggeber mehrere Lichtbilder zur Auswahl, hat der<br />Auftraggeber die nicht ausgewaehlten Lichtbilder innerhalb einer Woche nach Zugang -<br />wenn keine laengere Zeit vereinbart wurde - auf eigene Kosten und Gefahr<br />zurueckzusenden. Fuer verlorene oder beschaedigte Lichtbilder kann der Fotograf, sofern<br />er den Verlust oder die Beschaedigung nicht zu vertreten hat, Bezahlung verlangen.<br />2. ueberlaesst der Fotograf dem Auftraggeber Bilder aus seinem Archiv, so hat der<br />Auftraggeber die nicht ausgewaehlten Bilder innerhalb eines Monats nach Zugang beim<br />Auftraggeber, die ausgewaehlten innerhalb eines Monats nach Verwendung<br />zurueckzuschicken. Kommt der Auftraggeber mit der Ruecksendung in Verzug kann der<br />Fotograf eine Blockierungsgebuehr von 1 (in Worten: einem) Euro pro Tag und Bild<br />verlangen, sofern nicht der Auftraggeber nachweist, dass ein Schaden nicht entstanden<br />oder niedriger ist als die Schadenspauschale. Bei Verlust oder Beschaedigung, die eine<br />weitere Verwendung der Bilder ausschliesst, kann der Fotograf Schadenersatz verlangen.<br />Der Schadenersatz betraegt mindestens 1000 (in Worten: eintausend) Euro fuer jedes<br />Original und 200 (in Worten: zweihundert) Euro fuer jedes Duplikat, sofern nicht der<br />Auftraggeber nachweist, dass ein Schaden nicht entstanden oder niedriger ist als die<br />Schadenspauschale. Die Geltendmachung eines hoeheren Schadens bleibt dem<br />Fotografen vorbehalten.<br />3. Wird die fuer die Durchfuehrung des Auftrages vorgesehene Zeit aus Gruenden, die<br />der Fotograf nicht zu vertreten hat, wesentlich ueberschritten, so erhoeht sich das<br />Honorar des Fotografen, sofern ein Pauschalpreis vereinbart war, entsprechend. Ist ein<br />Zeithonorar vereinbart, erhaelt der Fotograf auch fuer die Wartezeit den vereinbarten<br />Stunden- oder Tagessatz, sofern der Auftraggeber nicht nachweist, dass dem Fotografen<br />kein Schaden entstanden ist. Bei Vorsatz oderFahrlaessigkeit des Auftraggebers kann der<br />Fotograf auch Schadenersatzansprueche geltend machen.<br />4. Liefertermine fuer Lichtbilder sind nur dann verbindlich, wenn sie ausdruecklich vom<br />Fotografen bestaetigt worden sind. Der Fotograf haftet fuer Fristueberschreitung nur bei<br />Vorsatz und grober Fahrlaessigkeit.</p>
+<p><br />VII. Datenschutz<br />Zum Geschaeftsverkehr erforderliche personenbezogene Daten des Auftraggebers<br />koennen gespeichert werden. Der Fotograf verpflichtet sich im Rahmen des Auftrages<br />bekannt gewordene Informationen vertraulich zu behandeln.</p>
+<p><br />VIII. Digitale Fotografie<br />1. Die Digitalisierung, Speicherung und Vervielfaeltigung der Lichtbilder des Fotografen<br />auf Datentraegern aller Art bedarf der vorherigen schriftlichen Zustimmung des<br />Fotografen.<br />2. Die uebertragung von Nutzungsrechten beinhaltet nicht das Recht zur Speicherung<br />und Vervielfaeltigung, wenn dieses Recht nicht ausdruecklich uebertragen wurde.</p>
+<p><br />IX. Bildbearbeitung<br />1. Die Bearbeitung von Lichtbildern des Fotografen und ihre Vervielfaeltigung und<br />Verbreitung, analog oder digital, bedarf der vorherigen Zustimmung des Fotografen.<br />Entsteht durch Foto-Composing, Montage oder sonstige elektronische Manipulation ein<br />neues Werk, ist dieses mit [M] zu kennzeichnen. Die Urheber der verwendeten Werke<br />und der Urheber des neuen Werkes sind Miturheber im Sinne des Paragraphen 8UrhG.<br />2. Der Auftraggeber ist verpflichtet, Lichtbilder des Fotografen digital so zu speichern und<br />zu kopieren, dass der Name des Fotografen mit den Bildern elektronisch verknuepft wird.<br />3. Der Auftraggeber ist verpflichtet, diese elektronische Verknuepfung so vorzunehmen,<br />dass sie bei jeder Art von Datenuebertragung, bei jeder Wiedergabe auf Bildschirmen,<br />bei allen Arten von Projektionen, insbesondere bei jeder oeffentlichen Wiedergabe,<br />erhalten bleibt und der Fotograf alsUrheber der Bilder klar und eindeutig identifizierbar<br />ist.<br />4. Der Auftraggeber versichert, dass er dazu berechtigt ist, den Fotografen mit der<br />elektronischen Bearbeitung fremder Lichtbilder zu beauftragen, wenn er einen solchen<br />Auftrag erteilt. Er stelle den Fotografen von allen Anspruechen Dritter frei, die auf der<br />Verletzung dieser Pflicht beruhen.</p>
+<p><br />X. Nutzung und Verbreitung<br />1. Die Verbreitung von Lichtbildern des Fotografen im Internet und in Intranets, in<br />Online-Datenbanken, in elektronischen Archiven, die nicht nur fuer den internen<br />Gebrauch des Auftraggebers bestimmt sind, auf Diskette, CD-ROM oder aehnlichen<br />Datentraegern ist nur aufgrund einer besonderen Vereinbarung zwischen dem Fotografen<br />und dem Auftraggeber gestattet.<br />2. Die Weitergabe digitalisierter Lichtbilder im Internet und in Intranets und auf<br />Datentraegern und<br />Geraeten, die zur oeffentlichen Wiedergabe auf Bildschirmen oder zur Herstellung von<br />Soft- oder Hardcopies geeignet sind, bedarf der vorherigen schriftlichen Zustimmung des<br />Fotografen.<br />3. Die Vervielfaeltigung und Verbreitung von Bearbeitungen, die der Fotograf auf<br />elektronischem Wege hergestellt hat, beduerfen der vorherigen schriftlichen Zustimmung<br />des Fotografen.<br />4. Der Fotograf ist nicht verpflichtet, Datentraeger, Dateien und Daten an den<br />Auftraggeber herauszugeben, wenn dies nicht ausdruecklich schriftlich vereinbart wurde.<br />5. Wuenscht der Auftraggeber, dass der Fotograf ihm Datentraeger, Dateien und Daten<br />zur Verfuegung stellt, ist dies zu vereinbaren und gesondert zu vergueten.<br />6. Hat der Fotograf dem Auftraggeber Datentraeger, Dateien und Daten zur Verfuegung<br />gestellt, duerfen diese nur mit vorheriger Einwilligung des Fotografen veraendert werden.<br />7. Gefahr und Kosten des Transports von Datentraegern, Dateien und Daten online und<br />offline liegen beim Auftraggeber; die Art und Weise der uebermittlung kann der<br />Auftraggeber bestimmen.</p>
+<p><br />XI. Schlussbestimmungen<br />Erfuellungsort fuer alle Verpflichtungen aus dem Vertragsverhaeltnis ist der Sitz des<br />Fotografen, wenn der Vertragspartner nicht Verbraucher ist. Sind beide Vertragsparteien<br />Kaufleute, juristische Personen des oeffentlichen Rechts oder ein oeffentlich rechtliches<br />Sondervermoegen, so ist der Geschaeftssitz des Fotografen als Gerichtsstand vereinbart.</p>
+<p><br />XII. Salvatorische Klausel<br />Soweit Bedingungen der oben aufgefuehrten Allgemeinen Geschaeftsbedingungen ganz<br />oder teilweise unwirksam sind oder werden, sind die uebrigen Bedingungen weiterhin<br />wirksam. Die unwirksame Bedingung wird durch die gesetzliche Regelung ersetzt.</p>	</div>
+
+	
+							</div>
+
+				</div>
+				<div class="clr"></div>
+				<span class="shadow-left">&nbsp;</span>
+				<span class="shadow-right">&nbsp;</span>
+					
+		
+			</div>
+							<div id="rightcol">
+		             	<div class="module-outer">
+					<h3 class="moduleh3"><strong>Termine</strong>
+				<span class="h3eckr">&nbsp;</span>
+			</h3>
+				<div class="module">
+			<div>
+				<div>
+					<div class="lvround-inner">
+						<ul class="nav menu mod-list">
+<li class="item-169"><a href="vom-7-11-4-26-geschlossen?rCH=-2" >vom 7.-11.4.26  geschlossen</a></li><li class="item-170"><a href="wir-ziehen-um?rCH=-2" >Wir ziehen um !</a></li><li class="item-164"><a href="vorsichtsmassnahme-aufgrund-der-corona-situation-terminvergabe-fuer-alle-anliegen?rCH=-2" >telefonische Terminvergabe für alle Anliegen</a></li><li class="item-171"><a href="https://bilder.foto-gruen.de/Veranstaltung/Umzug0226_webgal/" >Faschingsumzug Großauheim 26</a></li></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clr"></div>
+		<span class="shadow-left">&nbsp;</span>
+		<span class="shadow-right">&nbsp;</span>
+	</div>
+	
+				</div>
+				
+			<div class="clr"></div>
+		</div>
+			
+		
+		
+		<div class="clr"></div>
+	</div>
+			<div id="foot_container" style="max-width:980px;">
+					
+		
+		
+							
+	
+			
+			<div id="subfoot">
+								
+					<div class="copytext">&copy; Fotostudio Roland Grün, Hauptstr.37, 63457 Hanau, Tel.: 0 61 81 - 95 62 92</div>
+							</div>
+					
+	
+		<div class="clr"></div>
+			<div id="footer">
+				<div class="footer-inner">
+					<span class="feckl">&nbsp;</span>
+					<span class="feckr">&nbsp;</span>
+					<div id="scroll_up"> <a href="agb?rCH=-2#" class="lv-tooltip" id="gotop" title="Scroll to top">&uarr;&uarr;&uarr;</a></div>
+										</div>
+				<div class="footer-bottom">
+									
+				  		<span id="date">Freitag, 19. Juni 2026</span>
+								  		<span id="copy"><a href="http://www.lernvid.com" title="Joomla Templates" target="_blank">Template designed by LernVid.com</a></span>
+				</div>
+			</div>		
+		<div class="clr"></div>
+	</div>	
+		
+</body>
+</html>

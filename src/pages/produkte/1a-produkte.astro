@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const products = [
+  { title: '3D Laserfoto', href: '/produkte/3d-laserfoto' },
+  { title: 'Leinwandfotos', href: '/produkte/leinwandfotos' },
+  { title: 'Fotos auf Echtglas', href: '/produkte/fotos-auf-echtglas' },
+  { title: 'Fotos auf Stein', href: '/produkte/fotos-auf-stein' },
+  { title: 'Fototassen', href: '/produkte/fototassen' },
+  { title: 'Fotofunartikel', href: '/produkte/fotofunartikel' },
+];
+---
+
+<Layout
+  title="1A Produkte"
+  description="Produkte von Fotostudio Grün – Bilderrahmen, Fotobücher, Leinwand, Echtglas, Poster und Großbild, fachlich kompetent beraten."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Produkte"
+    title="Produkte von Fotostudio Grün"
+    lead="Eine Vielzahl von Produkten rund um das Bild – fachlich kompetent beraten."
+  />
+
+  <div class="prose">
+    <p>
+      Sie finden in unserem Ladengeschäft eine Vielzahl von Produkten, wie zum Beispiel
+      das <a href="/produkte/3d-laserfoto">3D Laserfoto</a>. Ausstattungen und Zubehör rund
+      um das Bild und die Fotografie führen wir ebenso wie ein ausgesuchtes und gut
+      gepflegtes Sortiment an Bilderrahmen und Accessoires.
+    </p>
+    <p>
+      Eine besonders beeindruckende Bildpräsentation für Motive mit hohem Kontrastumfang
+      stellt der Foto-Direktdruck auf <a href="/produkte/fotos-auf-echtglas">Echtglas</a> dar.
+    </p>
+    <p>
+      Die Gestaltung von Fotobüchern gehört ebenso zu unserem Repertoire wie die Ausgabe
+      von Fotofacharbeiten auf <a href="/produkte/leinwandfotos">Leinwandmaterial</a>.
+    </p>
+    <p>
+      Das Fachpersonal vom Fotostudio Grün hilft und berät Sie kompetent bei der Auswahl
+      von Rahmungen und bei der Gestaltung von Fotografien als Geschenk. Ebenso bieten wir
+      Ihnen die Verarbeitung als Poster oder Großbild. Dies kann auch aus Ihrer Vorlage
+      hergestellt werden. Auf persönliche und fachlich kompetente Beratung legt das
+      Fotostudio Grün in Hanau großen Wert.
+    </p>
+  </div>
+
+  <nav class="product-nav" aria-label="Produktübersicht">
+    <h2 class="product-nav__title">Unsere Produkte im Überblick</h2>
+    <ul>
+      {products.map((p) => <li><a class="product-chip" href={p.href}>{p.title} <span aria-hidden="true">→</span></a></li>)}
+    </ul>
+  </nav>
+</Layout>
+
+<style>
+  .product-nav {
+    margin-top: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  }
+  .product-nav__title {
+    font-size: var(--step-1);
+    margin-bottom: 1.25rem;
+  }
+  .product-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 0.75rem;
+  }
+  .product-chip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-family: var(--font-display);
+    font-weight: 600;
+    transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .product-chip span {
+    color: var(--crimson);
+    transition: transform var(--dur) var(--ease);
+  }
+  .product-chip:hover {
+    border-color: var(--line-strong);
+    color: var(--crimson);
+  }
+  .product-chip:hover span {
+    transform: translateX(4px);
+  }
+</style>

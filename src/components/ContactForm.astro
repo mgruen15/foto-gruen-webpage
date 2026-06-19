@@ -1,0 +1,222 @@
+---
+// UI-only contact form: client-side validation, math captcha and DSGVO
+// consent gate. Actual delivery is intentionally not wired yet (see the
+// submit handler TODO) — the form reports that sending is not yet active.
+const a = Math.floor(Math.random() * 8) + 1;
+const b = Math.floor(Math.random() * 8) + 1;
+---
+
+<form class="cform" data-cform novalidate>
+  <div class="cform__row">
+    <label class="field">
+      <span class="field__label">Name <em>*</em></span>
+      <input type="text" name="name" autocomplete="name" required />
+      <span class="field__error" data-error></span>
+    </label>
+    <label class="field">
+      <span class="field__label">E-Mail <em>*</em></span>
+      <input type="email" name="email" autocomplete="email" required />
+      <span class="field__error" data-error></span>
+    </label>
+  </div>
+
+  <label class="field">
+    <span class="field__label">Betreff <em>*</em></span>
+    <input type="text" name="subject" required />
+    <span class="field__error" data-error></span>
+  </label>
+
+  <label class="field">
+    <span class="field__label">Nachricht <em>*</em></span>
+    <textarea name="message" rows="6" required></textarea>
+    <span class="field__error" data-error></span>
+  </label>
+
+  <div class="cform__row cform__row--bottom">
+    <label class="field field--captcha">
+      <span class="field__label">Sicherheitsfrage: Wieviel ist {a} + {b}? <em>*</em></span>
+      <input type="text" inputmode="numeric" name="captcha" data-answer={a + b} required />
+      <span class="field__error" data-error></span>
+    </label>
+  </div>
+
+  <label class="consent-check">
+    <input type="checkbox" name="privacy" required />
+    <span>
+      Ich habe die <a href="/dsgvo">Datenschutzerklärung</a> gelesen und stimme der
+      Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu. <em>*</em>
+    </span>
+  </label>
+
+  <div class="cform__actions">
+    <button class="btn" type="submit"><span>Nachricht senden</span></button>
+    <p class="cform__status" data-status role="status" aria-live="polite"></p>
+  </div>
+
+  <p class="cform__hint">* Pflichtfelder</p>
+</form>
+
+<style>
+  .cform {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .cform__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+  @media (max-width: 560px) {
+    .cform__row {
+      grid-template-columns: 1fr;
+    }
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .field__label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .field__label em {
+    color: var(--crimson);
+    font-style: normal;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--forest);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--forest) 14%, transparent);
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+  .field[data-invalid] input,
+  .field[data-invalid] textarea {
+    border-color: var(--crimson);
+  }
+  .field__error {
+    font-size: 0.78rem;
+    color: var(--crimson);
+    min-height: 0;
+  }
+  .field--captcha {
+    max-width: 18rem;
+  }
+
+  .consent-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .consent-check input {
+    margin-top: 0.2rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--crimson);
+    flex-shrink: 0;
+  }
+  .consent-check a {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--crimson);
+    text-underline-offset: 2px;
+  }
+  .consent-check em {
+    color: var(--crimson);
+    font-style: normal;
+  }
+
+  .cform__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cform__status {
+    font-size: 0.88rem;
+  }
+  .cform__status[data-kind='ok'] {
+    color: var(--forest);
+  }
+  .cform__status[data-kind='info'] {
+    color: var(--ink-soft);
+  }
+  .cform__hint {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-cform]');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('[data-status]')!;
+
+    const setError = (field: HTMLElement, msg: string) => {
+      field.toggleAttribute('data-invalid', !!msg);
+      const el = field.querySelector<HTMLElement>('[data-error]');
+      if (el) el.textContent = msg;
+    };
+
+    function validate(): boolean {
+      let ok = true;
+      const fields = form!.querySelectorAll<HTMLElement>('.field');
+      fields.forEach((field) => {
+        const input = field.querySelector<HTMLInputElement | HTMLTextAreaElement>(
+          'input, textarea',
+        );
+        if (!input) return;
+        const val = input.value.trim();
+        let msg = '';
+        if (!val) msg = 'Bitte ausfüllen.';
+        else if (input.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val))
+          msg = 'Bitte gültige E-Mail-Adresse angeben.';
+        else if (input.dataset.answer && val !== input.dataset.answer)
+          msg = 'Das Ergebnis stimmt leider nicht.';
+        if (msg) ok = false;
+        setError(field, msg);
+      });
+
+      const privacy = form!.querySelector<HTMLInputElement>('input[name="privacy"]');
+      if (privacy && !privacy.checked) {
+        ok = false;
+        status.textContent = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+        status.dataset.kind = 'info';
+      }
+      return ok;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      status.textContent = '';
+      if (!validate()) return;
+
+      // TODO: wire delivery (form service / serverless endpoint). For now the
+      // form validates fully but does not transmit anything.
+      status.dataset.kind = 'info';
+      status.textContent =
+        'Vielen Dank! Der Online-Versand ist noch nicht aktiv – bitte erreichen Sie uns telefonisch unter 06181 956292.';
+    });
+  }
+</script>

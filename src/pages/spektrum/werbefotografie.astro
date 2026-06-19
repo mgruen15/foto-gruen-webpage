@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { img } from '../../lib/images';
+import { Image } from 'astro:assets';
+
+const poster = img('bilder/beitraege/Werbung image.png');
+// TODO: replace with the studio's real YouTube video URL once available.
+const videoUrl = 'https://www.youtube.com/@fotostudiogruen';
+---
+
+<Layout
+  title="Werbefotografie"
+  description="Werbefotografie vom Fotostudio Roland Grün – Bildwelten für Marken, Produkte und Kampagnen."
+>
+  <PageHero
+    slot="hero"
+    eyebrow="Spektrum"
+    title="Werbefotografie"
+    lead="Bilder, die verkaufen – durchdacht inszeniert und meisterlich umgesetzt."
+  />
+
+  <div class="prose">
+    <p>
+      Werbefotografie lebt von der Idee und ihrer präzisen Umsetzung. Vom Freisteller
+      über die aufwändige Inszenierung bis zur finalen Bildbearbeitung gestalten wir
+      Bildwelten, die Ihre Botschaft transportieren.
+    </p>
+    <p>Ein kurzes erklärendes Video zur Werbefotografie finden Sie hier:</p>
+  </div>
+
+  <a class="video" href={videoUrl} target="_blank" rel="noopener noreferrer" aria-label="Erklärvideo zur Werbefotografie auf YouTube ansehen">
+    <span class="video__frame img-frame">
+      <Image src={poster} alt="Vorschau Werbefotografie" widths={[600, 1000, 1400]} sizes="(max-width: 800px) 100vw, 700px" loading="lazy" />
+    </span>
+    <span class="video__play" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+    </span>
+    <span class="video__label">Video auf YouTube ansehen ↗</span>
+  </a>
+</Layout>
+
+<style>
+  .video {
+    position: relative;
+    display: block;
+    margin-top: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    max-width: 720px;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .video__frame {
+    display: block;
+    aspect-ratio: 16 / 9;
+  }
+  .video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4.5rem;
+    height: 4.5rem;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: var(--crimson);
+    border-radius: 50%;
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+    transition: transform var(--dur) var(--ease);
+  }
+  .video:hover .video__play {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  .video__label {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(18, 34, 23, 0.78);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 2px;
+  }
+</style>
