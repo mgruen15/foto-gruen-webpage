@@ -3,6 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Fotostudio Roland Grün — Atelier für Fotografie im Handwerk, Hanau-Großauheim",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

@@ -26,8 +26,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Build Astro site
         # Installs dependencies, runs `astro build`, and uploads the
-        # dist/ folder as a Pages artifact.
+        # dist/ folder as a Pages artifact. Astro 6 requires Node >=22.12,
+        # so pin the action's Node version (it defaults to 20).
         uses: withastro/action@v3
+        with:
+          node-version: 22
 
   deploy:
     needs: build
