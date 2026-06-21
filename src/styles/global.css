@@ -3,7 +3,7 @@
    Editorial minimalism · avant-garde · the UI frames the photography.
    ========================================================================= */
 
-@import '@fontsource-variable/syne';
+@import '@fontsource-variable/bricolage-grotesque';
 @import '@fontsource-variable/inter';
 
 /* ----------------------------------------------------------------- Tokens */
@@ -23,7 +23,7 @@
   --line-strong: #d2d6d1;
 
   /* Typography */
-  --font-display: 'Syne Variable', 'Syne', system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;
   --font-body: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Fluid type scale */
