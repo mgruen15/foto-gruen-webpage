@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import ContentImage from '../components/ContentImage.astro';
+import { url } from '../lib/url';
 ---
 
 <Layout
@@ -26,7 +27,7 @@ import ContentImage from '../components/ContentImage.astro';
     <ol class="steps">
       <li class="step">
         <h2 class="step__title"><span>1</span> Nachbestellung von Studio- und Auftragsarbeiten</h2>
-        <p>Über unser <a href="/kontakt">Kontaktformular</a> können Sie Nachbestellungen von Studioarbeiten auslösen. Folgende Daten werden benötigt:</p>
+        <p>Über unser <a href={url('/kontakt')}>Kontaktformular</a> können Sie Nachbestellungen von Studioarbeiten auslösen. Folgende Daten werden benötigt:</p>
         <ul>
           <li>Ihre Bildnummern (in der Regel 8 Ziffern)</li>
           <li>Die gewünschte Anzahl der Abzüge</li>
@@ -135,7 +136,7 @@ import ContentImage from '../components/ContentImage.astro';
     margin-top: 0.3rem;
   }
   .step li::marker {
-    color: var(--crimson);
+    color: var(--accent);
   }
   .step__note {
     margin-top: 0.8rem;
@@ -146,7 +147,7 @@ import ContentImage from '../components/ContentImage.astro';
     color: var(--forest);
     font-weight: 600;
     text-decoration: underline;
-    text-decoration-color: var(--crimson);
+    text-decoration-color: var(--accent);
     text-underline-offset: 2px;
   }
 </style>

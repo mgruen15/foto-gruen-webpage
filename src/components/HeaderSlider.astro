@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { headerSlides } from '../data/site';
 import { img } from '../lib/images';
+import { url } from '../lib/url';
 
 const slides = headerSlides.map((s) => ({ ...s, image: img(s.src) }));
 ---
@@ -34,8 +35,8 @@ const slides = headerSlides.map((s) => ({ ...s, image: img(s.src) }));
         Portrait, Industrie- und Werbefotografie – mit meisterlichem Auge.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--light" href="/bildgalerien/bewerbung"><span>Bildgalerien</span></a>
-        <a class="btn btn--ghost btn--on-dark" href="/kontakt"><span>Kontakt</span></a>
+        <a class="btn btn--light" href={url('/bildgalerien/bewerbung')}><span>Bildgalerien</span></a>
+        <a class="btn btn--ghost btn--on-dark" href={url('/kontakt')}><span>Kontakt</span></a>
       </div>
     </div>
 
@@ -152,8 +153,8 @@ const slides = headerSlides.map((s) => ({ ...s, image: img(s.src) }));
     transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
   }
   .hero__dot[aria-selected='true'] {
-    background: var(--crimson);
-    border-color: var(--crimson);
+    background: var(--accent);
+    border-color: var(--accent);
     transform: scale(1.25);
   }
 

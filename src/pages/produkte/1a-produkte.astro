@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
+import { url } from '../../lib/url';
 
 const products = [
   { title: '3D Laserfoto', href: '/produkte/3d-laserfoto' },
@@ -26,17 +27,17 @@ const products = [
   <div class="prose">
     <p>
       Sie finden in unserem Ladengeschäft eine Vielzahl von Produkten, wie zum Beispiel
-      das <a href="/produkte/3d-laserfoto">3D Laserfoto</a>. Ausstattungen und Zubehör rund
+      das <a href={url('/produkte/3d-laserfoto')}>3D Laserfoto</a>. Ausstattungen und Zubehör rund
       um das Bild und die Fotografie führen wir ebenso wie ein ausgesuchtes und gut
       gepflegtes Sortiment an Bilderrahmen und Accessoires.
     </p>
     <p>
       Eine besonders beeindruckende Bildpräsentation für Motive mit hohem Kontrastumfang
-      stellt der Foto-Direktdruck auf <a href="/produkte/fotos-auf-echtglas">Echtglas</a> dar.
+      stellt der Foto-Direktdruck auf <a href={url('/produkte/fotos-auf-echtglas')}>Echtglas</a> dar.
     </p>
     <p>
       Die Gestaltung von Fotobüchern gehört ebenso zu unserem Repertoire wie die Ausgabe
-      von Fotofacharbeiten auf <a href="/produkte/leinwandfotos">Leinwandmaterial</a>.
+      von Fotofacharbeiten auf <a href={url('/produkte/leinwandfotos')}>Leinwandmaterial</a>.
     </p>
     <p>
       Das Fachpersonal vom Fotostudio Grün hilft und berät Sie kompetent bei der Auswahl
@@ -50,7 +51,7 @@ const products = [
   <nav class="product-nav" aria-label="Produktübersicht">
     <h2 class="product-nav__title">Unsere Produkte im Überblick</h2>
     <ul>
-      {products.map((p) => <li><a class="product-chip" href={p.href}>{p.title} <span aria-hidden="true">→</span></a></li>)}
+      {products.map((p) => <li><a class="product-chip" href={url(p.href)}>{p.title} <span aria-hidden="true">→</span></a></li>)}
     </ul>
   </nav>
 </Layout>
@@ -85,12 +86,12 @@ const products = [
     transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
   .product-chip span {
-    color: var(--crimson);
+    color: var(--accent);
     transition: transform var(--dur) var(--ease);
   }
   .product-chip:hover {
     border-color: var(--line-strong);
-    color: var(--crimson);
+    color: var(--accent);
   }
   .product-chip:hover span {
     transform: translateX(4px);

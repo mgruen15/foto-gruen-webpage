@@ -2,6 +2,7 @@
 // UI-only contact form: client-side validation, math captcha and DSGVO
 // consent gate. Actual delivery is intentionally not wired yet (see the
 // submit handler TODO) — the form reports that sending is not yet active.
+import { url } from '../lib/url';
 const a = Math.floor(Math.random() * 8) + 1;
 const b = Math.floor(Math.random() * 8) + 1;
 ---
@@ -43,7 +44,7 @@ const b = Math.floor(Math.random() * 8) + 1;
   <label class="consent-check">
     <input type="checkbox" name="privacy" required />
     <span>
-      Ich habe die <a href="/dsgvo">Datenschutzerklärung</a> gelesen und stimme der
+      Ich habe die <a href={url('/dsgvo')}>Datenschutzerklärung</a> gelesen und stimme der
       Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu. <em>*</em>
     </span>
   </label>
@@ -85,7 +86,7 @@ const b = Math.floor(Math.random() * 8) + 1;
     color: var(--ink-soft);
   }
   .field__label em {
-    color: var(--crimson);
+    color: var(--accent);
     font-style: normal;
   }
   .field input,
@@ -109,11 +110,11 @@ const b = Math.floor(Math.random() * 8) + 1;
   }
   .field[data-invalid] input,
   .field[data-invalid] textarea {
-    border-color: var(--crimson);
+    border-color: var(--accent);
   }
   .field__error {
     font-size: 0.78rem;
-    color: var(--crimson);
+    color: var(--accent);
     min-height: 0;
   }
   .field--captcha {
@@ -132,18 +133,18 @@ const b = Math.floor(Math.random() * 8) + 1;
     margin-top: 0.2rem;
     width: 1.1rem;
     height: 1.1rem;
-    accent-color: var(--crimson);
+    accent-color: var(--accent);
     flex-shrink: 0;
   }
   .consent-check a {
     color: var(--forest);
     font-weight: 600;
     text-decoration: underline;
-    text-decoration-color: var(--crimson);
+    text-decoration-color: var(--accent);
     text-underline-offset: 2px;
   }
   .consent-check em {
-    color: var(--crimson);
+    color: var(--accent);
     font-style: normal;
   }
 

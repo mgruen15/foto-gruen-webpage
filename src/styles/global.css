@@ -13,7 +13,8 @@
   --surface: #ffffff;
   --forest: #1b3322;
   --forest-deep: #122217;
-  --crimson: #e42323;
+  /* Accent — used sparingly for hover states, active dots, fine UI details. */
+  --accent: #2b8a3e;
 
   --ink: #14201a;
   --ink-soft: #41524a;
@@ -99,7 +100,7 @@ select {
 }
 
 :focus-visible {
-  outline: 2px solid var(--crimson);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -155,13 +156,13 @@ strong {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--crimson);
+  color: var(--accent);
 }
 .eyebrow::before {
   content: '';
   width: 1.6rem;
   height: 1px;
-  background: var(--crimson);
+  background: var(--accent);
 }
 
 /* ------------------------------------------------------------------ Prose */
@@ -184,7 +185,7 @@ strong {
 .prose a {
   color: var(--forest);
   font-weight: 600;
-  background-image: linear-gradient(var(--crimson), var(--crimson));
+  background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 0% 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -201,10 +202,10 @@ strong {
   margin-top: 0.4em;
 }
 .prose li::marker {
-  color: var(--crimson);
+  color: var(--accent);
 }
 .prose blockquote {
-  border-left: 2px solid var(--crimson);
+  border-left: 2px solid var(--accent);
   padding-left: 1.2rem;
   font-family: var(--font-display);
   font-size: var(--step-1);
@@ -262,7 +263,7 @@ strong {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--crimson);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform var(--dur) var(--ease);
@@ -276,7 +277,7 @@ strong {
   z-index: 1;
 }
 .btn:hover {
-  border-color: var(--crimson);
+  border-color: var(--accent);
 }
 .btn--ghost {
   --btn-bg: transparent;
@@ -346,7 +347,7 @@ strong {
   color: #fff;
 }
 .is-dark .eyebrow::before {
-  background: var(--crimson);
+  background: var(--accent);
 }
 
 /* ------------------------------------------------------------- Utilities */

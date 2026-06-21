@@ -1,6 +1,7 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
 import { contact } from '../data/site';
+import { url } from '../lib/url';
 ---
 
 <LegalLayout
@@ -28,7 +29,7 @@ import { contact } from '../data/site';
   <p>
     <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br />
     Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
-    Kontaktdaten können Sie dem <a href="/impressum">Impressum</a> dieser Website entnehmen.
+    Kontaktdaten können Sie dem <a href={url('/impressum')}>Impressum</a> dieser Website entnehmen.
   </p>
   <p>
     <strong>Wie erfassen wir Ihre Daten?</strong><br />
@@ -69,7 +70,7 @@ import { contact } from '../data/site';
     <strong>{contact.studio}</strong><br />
     {contact.street}, {contact.zip} {contact.town}<br />
     Telefon: {contact.phone}<br />
-    E-Mail: über unser <a href="/kontakt">Kontaktformular</a>
+    E-Mail: über unser <a href={url('/kontakt')}>Kontaktformular</a>
   </p>
   <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
   <p>

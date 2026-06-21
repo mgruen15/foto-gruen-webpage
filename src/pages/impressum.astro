@@ -1,6 +1,7 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
 import { contact } from '../data/site';
+import { url } from '../lib/url';
 ---
 
 <LegalLayout
@@ -24,7 +25,7 @@ import { contact } from '../data/site';
   <p>
     <strong>Telefon:</strong> {contact.phone}<br />
     <strong>Telefax:</strong> {contact.fax}<br />
-    <strong>E-Mail:</strong> über unser <a href="/kontakt">Kontaktformular</a><br />
+    <strong>E-Mail:</strong> über unser <a href={url('/kontakt')}>Kontaktformular</a><br />
     <strong>Inhaber:</strong> Roland Grün<br />
     <strong>USt-IdNr.:</strong> DE 157554112<br />
     <strong>Zuständige Behörde:</strong> Gewerbeamt Hanau

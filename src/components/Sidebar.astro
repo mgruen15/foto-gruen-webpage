@@ -1,5 +1,6 @@
 ---
 import { serviceLinks, news } from '../data/site';
+import { url } from '../lib/url';
 ---
 
 <aside class="sidebar" aria-label="Service und Aktuelles">
@@ -11,7 +12,7 @@ import { serviceLinks, news } from '../data/site';
           <li>
             <a
               class="quick-link"
-              href={link.href}
+              href={url(link.href)}
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
             >
@@ -36,7 +37,7 @@ import { serviceLinks, news } from '../data/site';
             <li class:list={['news__item', { 'news__item--hot': item.highlight }]}>
               <Tag
                 class="news__inner"
-                href={item.href}
+                href={item.href ? url(item.href) : undefined}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
               >
@@ -108,11 +109,11 @@ import { serviceLinks, news } from '../data/site';
     border-top: 0;
   }
   .quick-link:hover {
-    color: var(--crimson);
+    color: var(--accent);
     padding-left: 0.35rem;
   }
   .quick-link__arrow {
-    color: var(--crimson);
+    color: var(--accent);
     transition: transform var(--dur) var(--ease);
   }
   .quick-link:hover .quick-link__arrow {
@@ -146,11 +147,11 @@ import { serviceLinks, news } from '../data/site';
     transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
   }
   .news__item--hot .news__inner {
-    border-left-color: var(--crimson);
+    border-left-color: var(--accent);
   }
   a.news__inner:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-left-color: var(--crimson);
+    border-left-color: var(--accent);
   }
   .news__title {
     font-size: 0.95rem;
@@ -161,7 +162,7 @@ import { serviceLinks, news } from '../data/site';
     gap: 0.4rem;
   }
   .news__ext {
-    color: var(--crimson);
+    color: var(--accent);
     font-size: 0.8rem;
   }
   .news__body {

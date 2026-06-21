@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Gallery from '../../components/Gallery.astro';
 import { galleries } from '../../data/galleries';
+import { url } from '../../lib/url';
 
 export function getStaticPaths() {
   return galleries.map((gallery) => ({
@@ -27,7 +28,7 @@ const others = galleries.filter((g) => g.slug !== gallery.slug);
   <nav class="gallery-switch" aria-label="Weitere Galerien">
     <span class="gallery-switch__label">Weitere Galerien:</span>
     <ul>
-      {others.map((g) => <li><a class="link-underline" href={`/bildgalerien/${g.slug}`}>{g.title}</a></li>)}
+      {others.map((g) => <li><a class="link-underline" href={url(`/bildgalerien/${g.slug}`)}>{g.title}</a></li>)}
     </ul>
   </nav>
 </Layout>

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { contact, partners, nav } from '../data/site';
 import { img } from '../lib/images';
+import { url } from '../lib/url';
 
 const year = new Date().getFullYear();
 const logos = partners.map((p) => ({ ...p, image: img(p.src) }));
@@ -30,14 +31,14 @@ const legal = [
       <nav class="footer__nav" aria-label="Footer-Navigation">
         <h2 class="footer__h">Navigation</h2>
         <ul>
-          {nav.map((item) => <li><a class="link-underline" href={item.href}>{item.label}</a></li>)}
+          {nav.map((item) => <li><a class="link-underline" href={url(item.href)}>{item.label}</a></li>)}
         </ul>
       </nav>
 
       <nav class="footer__nav" aria-label="Rechtliches">
         <h2 class="footer__h">Rechtliches</h2>
         <ul>
-          {legal.map((item) => <li><a class="link-underline" href={item.href}>{item.label}</a></li>)}
+          {legal.map((item) => <li><a class="link-underline" href={url(item.href)}>{item.label}</a></li>)}
         </ul>
       </nav>
 

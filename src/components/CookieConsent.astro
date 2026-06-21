@@ -2,6 +2,7 @@
 // Privacy consent banner. The rebuild ships no non-essential trackers by
 // default, so "decline" simply records the choice; "accept" would gate any
 // future optional embeds. Choice is persisted in localStorage.
+import { url } from '../lib/url';
 ---
 
 <div class="consent" data-consent hidden>
@@ -12,7 +13,7 @@
         Einige Cookies sind essenziell für den Betrieb der Seite, während andere
         uns helfen, diese Website und Ihre Nutzererfahrung zu verbessern. Sie
         entscheiden selbst, ob Sie nicht-essenzielle Cookies zulassen. Mehr dazu
-        in unserer <a href="/dsgvo">Datenschutzerklärung</a>.
+        in unserer <a href={url('/dsgvo')}>Datenschutzerklärung</a>.
       </p>
     </div>
     <div class="consent__actions">
@@ -62,7 +63,7 @@
     color: var(--forest);
     font-weight: 600;
     text-decoration: underline;
-    text-decoration-color: var(--crimson);
+    text-decoration-color: var(--accent);
     text-underline-offset: 2px;
   }
   .consent__actions {

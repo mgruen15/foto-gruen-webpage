@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeaderSlider from '../components/HeaderSlider.astro';
 import ContentImage from '../components/ContentImage.astro';
+import { url } from '../lib/url';
 
 const badges = ['Bewerbungsfoto', 'Passfoto', 'Fotostudio', 'Werbefotografie'];
 
@@ -74,7 +75,7 @@ const leistungen = [
         {
           leistungen.map((l) => (
             <li>
-              <a class="card" href={l.href}>
+              <a class="card" href={url(l.href)}>
                 <h3 class="card__title">{l.title}</h3>
                 <p class="card__text">{l.text}</p>
                 <span class="card__more link-underline">Mehr erfahren →</span>
@@ -168,7 +169,7 @@ const leistungen = [
   .card__more {
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--crimson);
+    color: var(--accent);
     align-self: flex-start;
   }
 </style>

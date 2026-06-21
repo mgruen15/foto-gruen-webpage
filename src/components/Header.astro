@@ -2,8 +2,9 @@
 import { Image } from 'astro:assets';
 import { nav, site } from '../data/site';
 import { img } from '../lib/images';
+import { url, stripBase } from '../lib/url';
 
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = stripBase(Astro.url.pathname);
 const logo = img('Logowstudio fr web small.jpg');
 
 function isActive(item: (typeof nav)[number]) {
@@ -17,7 +18,7 @@ function isActive(item: (typeof nav)[number]) {
 
 <header class="site-header">
   <div class="container site-header__bar">
-    <a class="brand" href="/" aria-label={`${site.name} – Startseite`}>
+    <a class="brand" href={url('/')} aria-label={`${site.name} – Startseite`}>
       <Image src={logo} alt={`${site.name} Logo`} class="brand__logo" widths={[120, 200]} sizes="56px" loading="eager" />
       <span class="brand__text">
         <span class="brand__name">Fotostudio Roland Grün</span>
@@ -44,7 +45,7 @@ function isActive(item: (typeof nav)[number]) {
             <li class:list={['primary-nav__item', { 'has-children': item.children }]}>
               <a
                 class:list={['primary-nav__link', { 'is-active': isActive(item) }]}
-                href={item.href}
+                href={url(item.href)}
                 aria-current={isActive(item) ? 'page' : undefined}
               >
                 {item.label}
@@ -61,7 +62,7 @@ function isActive(item: (typeof nav)[number]) {
                       <li>
                         <a
                           class="submenu__link"
-                          href={child.href}
+                          href={url(child.href)}
                           target={child.external ? '_blank' : undefined}
                           rel={child.external ? 'noopener noreferrer' : undefined}
                         >
@@ -157,7 +158,7 @@ function isActive(item: (typeof nav)[number]) {
     color: var(--ink);
   }
   .primary-nav__link.is-active {
-    box-shadow: inset 0 -2px 0 var(--crimson);
+    box-shadow: inset 0 -2px 0 var(--accent);
   }
   .caret {
     transition: transform var(--dur) var(--ease);
@@ -210,7 +211,7 @@ function isActive(item: (typeof nav)[number]) {
     color: var(--forest);
   }
   .ext {
-    color: var(--crimson);
+    color: var(--accent);
     font-size: 0.75rem;
   }
 
@@ -280,7 +281,7 @@ function isActive(item: (typeof nav)[number]) {
     }
     .primary-nav__link.is-active {
       box-shadow: none;
-      color: var(--crimson);
+      color: var(--accent);
     }
     .submenu {
       position: static;

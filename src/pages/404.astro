@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
 ---
 
 <Layout title="Seite nicht gefunden" description="Die aufgerufene Seite wurde nicht gefunden." fullWidth>
@@ -12,9 +13,9 @@ import PageHero from '../components/PageHero.astro';
       einer der folgenden Links weiter:
     </p>
     <div class="notfound__actions">
-      <a class="btn" href="/"><span>Zur Startseite</span></a>
-      <a class="btn btn--ghost" href="/bildgalerien/bewerbung"><span>Bildgalerien</span></a>
-      <a class="btn btn--ghost" href="/kontakt"><span>Kontakt</span></a>
+      <a class="btn" href={url('/')}><span>Zur Startseite</span></a>
+      <a class="btn btn--ghost" href={url('/bildgalerien/bewerbung')}><span>Bildgalerien</span></a>
+      <a class="btn btn--ghost" href={url('/kontakt')}><span>Kontakt</span></a>
     </div>
   </div>
 </Layout>
